@@ -1,0 +1,325 @@
+/*Basic set up*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    background-color: grey;
+    color: #555;
+    font-family: 'Lato', 'Courier New', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+/*-------------------*/
+/*--- S-HEADER ---*/
+
+header{
+    height: 50vh;
+    width: 100%;
+    background-color: #1d1d1f;
+    color: white;
+    overflow: hidden;
+}
+.bd-example, .carousel, .carousel-item{
+    height: 50vh;
+    width: 100%;
+}
+.carousel-item .carousel-item-content {
+	width: 100%;
+	height: 100%;
+	-webkit-background-size: cover !important;
+	-moz-background-size: cover !important;
+	-o-background-size: cover !important;
+	background-size: cover !important;
+	background-position: center center !important;
+	background-repeat: no-repeat !important;
+	overflow: hidden !important;
+	background-attachment: fixed !important;
+}
+
+.carousel-caption{
+    margin-bottom: 5%;    
+}
+.carousel-caption h5{
+    font-size: 350%;
+    font-weight: 900;
+}
+.carousel-caption a{
+    display: inline-block;
+    margin: 1%;    
+    
+}
+
+/*-------------------*/
+/*--- S-NAV ---*/
+.navbar {
+    background-color: #0d0d0e;
+}
+.navbar .container{
+    background-color: #0d0d0e;
+}
+.navbar-brand img{
+    width: 40%;
+}
+.navbar-nav li{
+    margin-left: 20px;
+}
+.navbar-nav li a:link,
+.navbar-nav li a:visited {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 80%;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 5px;
+    transition: border 0.2s;
+}
+.navbar-nav li a:active,
+.navbar-nav li a:hover{    
+    border-bottom: 2px solid #ed2d36;
+}
+.hidden-item{
+    display: none;
+}
+@media (max-width: 992px) { 
+    .hidden-item{
+        display: block;
+    }
+    .navbar-nav li{
+        margin-left: 0px;
+    }
+ }
+/*-------------------*/
+/*--- S-ABOUT ---*/
+.section{    
+    padding: 30px 0;    
+    background-color: #f5f5f5;
+}
+.long-copy{
+    text-align: center;
+    line-height: 145%;
+    width: 70%;
+    margin-left: 15%;
+}
+
+h2{
+    margin: auto;
+    font-size: 180%;
+    word-spacing: 2px;
+    text-align: center;
+}
+
+h2::after{
+    display: block;
+    margin:auto;
+    height: 2px;
+    width: 100px;
+    background-color: #ed2d36;
+    content: " ";
+    margin-top: 20px;
+}
+.section-about h2{
+    font-weight: 800;
+}
+.btn-danger{
+    margin: 10px auto;
+    font-size: 80%;
+    font-weight: bold;
+    background-color: #ed2d36;
+    padding: 5px 10px;
+}
+a.btn-danger{
+    font-size: 80%;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+/*-------------------*/
+/*--- S-SUBJECTS ---*/
+
+.section-subject{
+    padding-top: 0;
+}
+.card{
+    margin-bottom: 20px;
+}
+.card .card-body{
+    background-color: #1d1d1f;
+    color: white;
+}
+.card-title{
+    font-weight: 800;
+}
+/*-------------------*/
+/*--- S-STUDENTS ---*/
+
+.section-std{
+    background-color: #ed2d36;
+    color: white;
+}
+.section-std h3{
+    margin: auto;
+    font-weight: 800;
+}
+
+.section-review{
+    width: 100%;
+    height: auto;  
+    -webkit-background-size: cover !important;
+	-moz-background-size: cover !important;
+	-o-background-size: cover !important;
+	background-size: cover !important;
+	background-position: top !important;
+	background-repeat: no-repeat !important;
+	overflow: hidden !important;
+    background-attachment: fixed !important;
+    color: white;
+}
+
+.student{
+    width: 100%;
+    height: 350px;    
+    -webkit-background-size: cover !important;
+	-moz-background-size: cover !important;
+	-o-background-size: cover !important;
+	background-size: cover !important;
+	background-position: center center !important;
+	background-repeat: no-repeat !important;
+    overflow: hidden !important;
+    position:relative;
+    margin-bottom: 20px;
+    transition: background-image 0.2s;
+}
+.std-2{
+    height: 250px;
+}
+@media (max-width: 992px) { 
+    .student{
+        width: 100%;
+        height: 160px;            
+    }
+    .std-2{
+        height: 120px;
+    }
+ }
+.review-cap{
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+.student:hover .review-cap{
+    opacity: 1;
+}
+.student:hover{
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));
+}
+.review-cap h5{
+    font-weight: 800;
+}
+
+
+/*-------------------*/
+/*--- SECTION-TEACHERS ---*/
+.section-teachers{
+    padding-bottom: 0;
+}
+.section-teachers img{
+    margin: auto;
+}
+.section-teachers h2{
+    font-weight: 800;
+}
+
+/*-------------------*/
+/*--- SECTION-FOOTER ---*/
+
+footer{
+    background-color: #1d1d1f!important;
+    color: white;
+    text-transform: uppercase;    
+    text-decoration: none;
+}
+footer ul{
+   list-style:none;
+}
+footer li a:link,
+footer li a:visited {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 80%;
+    font-weight: 300;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 5px;
+    transition: border 0.2s;
+}
+footer li a:active,
+footer li a:hover{    
+    border-bottom: 2px solid #ed2d36;
+}
+
+footer h6{
+    font-weight: 800;
+}
+
+/*-------------------*/
+/*--- SUB-FOOTER ---*/
+.sub-footer{
+    background-color: #0d0d0e;
+}
+.sub-footer ul{
+    list-style-type: none;
+}
+.sub-footer ul li{
+    display: inline-block;
+    /* padding: 0 5px; */
+    border-right: 1px solid #58585c;
+    font-size: 70%;
+    text-align: center;
+    padding-right: 5px;
+    color:#58585c;
+}
+
+/*-------------------*/
+/*--- S-LOGIN/SIGN-UP ---*/
+.section-login {
+    background-color: #1d1d1f;
+}
+.sec a{
+    display: block; 
+    float: right;
+    font-size: 80%;
+    margin-left: 30px;
+    margin-right: 10px;
+}
+.sec a:link,
+.sec a:visited {
+    color: white;
+    text-decoration: none;    
+    font-size: 80%;    
+    transition: color 0.2s;
+}
+.sec a:active,
+.sec a:hover{    
+    color: #ed2d36;
+}
+.user{
+    color: white;
+    text-decoration: none;    
+    font-size: 80%;    
+    transition: color 0.2s;
+}
+@media (max-width: 992px) { 
+    .section-login{
+        display: none;
+    }
+    
+ }
