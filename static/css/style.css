@@ -92,6 +92,9 @@ header{
     .navbar-nav li{
         margin-left: 0px;
     }
+    .navbar-toggler.collapsed{
+        border: 1px solid white;
+    }
  }
 /*-------------------*/
 /*--- S-ABOUT ---*/
