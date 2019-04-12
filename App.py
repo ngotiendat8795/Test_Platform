@@ -18,31 +18,31 @@ def create():
 def ielts():
     return render_template('Ielts_Section.html')
 
-@app.route('/ielts/cambridge/reading-intro')
+@app.route('/ielts/reading-intro')
 def reading_intro():
     return render_template('Reading_Intro.html')
 
-@app.route('/ielts/cambridge/reading-intro/reading-test')
+@app.route('/ielts/reading-intro/reading-test')
 def reading_test():
     return render_template('Reading_Test.html')
 
-@app.route('/ielts/cambridge/listening-intro')
+@app.route('/ielts/listening-intro')
 def listening_intro():
     return render_template('Listening_Intro.html')
 
-@app.route('/ielts/cambridge/listening-intro/listening-test')
+@app.route('/ielts/listening-intro/listening-test')
 def listening_test():
     return render_template('Listening_Test.html')
 
-@app.route('/ielts/cambridge/writing-intro')
+@app.route('/ielts/writing-intro')
 def writing_intro():
     return render_template('Writing_Intro.html')
 
-@app.route('/ielts/cambridge/writing-intro/writing-test')
+@app.route('/ielts/writing-intro/writing-test')
 def writing_test():
     return render_template('Writing_Test.html')
 
-@app.route('/ielts/cambridge/result')
+@app.route('/ielts/result')
 def result():
     return render_template('Result.html')
 
