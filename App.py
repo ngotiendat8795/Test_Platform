@@ -18,10 +18,6 @@ def create():
 def ielts():
     return render_template('Ielts_Section.html')
 
-@app.route('/ielts/cambridge')
-def cambridge():
-    return render_template('Ielts_Cambridge.html')
-
 @app.route('/ielts/cambridge/reading-intro')
 def reading_intro():
     return render_template('Reading_Intro.html')
