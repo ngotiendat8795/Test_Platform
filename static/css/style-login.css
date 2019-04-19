@@ -12,7 +12,62 @@ html{
     font-size: 20px;
     font-weight: 300;
 }
+.section{    
+    padding: 30px 0;    
+    background-color: #f5f5f5;
+}
+.section-login-part{
+    padding-top: 0!important;
+}
+.btn-danger{
+    font-size: 80%;
+    font-weight: bold;
+    background-color: #ed2d36;
+    padding: 5px 10px;
+}
+a.btn-danger{
+    font-size: 80%;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+.section-login-part a:link,
+.section-login-part a:visited {
+    color: white;
+    text-decoration: none;    
+    font-size: 80%;    
+    transition: color 0.2s;
+}
+.section-login-part a:active,
+.section-login-part a:hover{    
+    color:white;
+}
+.long-copy{
+    text-align: center;
+    line-height: 145%;
+    width: 70%;
+    margin-left: 15%;
+}
 
+h2{
+    margin: auto;
+    font-size: 180%;
+    word-spacing: 2px;
+    text-align: center;
+}
+
+h2::after{
+    display: block;
+    margin:auto;
+    height: 2px;
+    width: 100px;
+    background-color: #ed2d36;
+    content: " ";
+    margin-top: 20px;
+}
+.wrong::placeholder{
+    color: red!important;
+    font-style: italic;
+}
 /*-------------------*/
 /*--- S-HEADER ---*/
 
@@ -44,13 +99,11 @@ header{
     margin-bottom: 5%;    
 }
 .carousel-caption h5{
-    font-size: 350%;
+    font-size: 250%;
     font-weight: 900;
 }
 .carousel-caption a{
     display: inline-block;
-    margin: 1%;    
-    
 }
 
 /*-------------------*/
@@ -96,153 +149,7 @@ header{
         border: 1px solid white;
     }
  }
-/*-------------------*/
-/*--- S-ABOUT ---*/
-.section{    
-    padding: 30px 0;    
-    background-color: #f5f5f5;
-}
-.long-copy{
-    text-align: center;
-    line-height: 145%;
-    width: 70%;
-    margin-left: 15%;
-}
 
-h2{
-    margin: auto;
-    font-size: 180%;
-    word-spacing: 2px;
-    text-align: center;
-}
-
-h2::after{
-    display: block;
-    margin:auto;
-    height: 2px;
-    width: 100px;
-    background-color: #ed2d36;
-    content: " ";
-    margin-top: 20px;
-}
-.section-about h2{
-    font-weight: 800;
-}
-.btn-danger{
-    
-    margin: auto;
-    font-size: 80%;
-    font-weight: bold;
-    background-color: #ed2d36;
-    padding: 5px 10px;
-}
-a.btn-danger{
-    font-size: 80%;
-    font-weight: bold;
-    padding: 10px 20px;
-}
-/*-------------------*/
-/*--- S-SUBJECTS ---*/
-
-.section-subject{
-    padding-top: 0;
-}
-.card{
-    margin-bottom: 20px;
-}
-.card .card-body{
-    background-color: #1d1d1f;
-    color: white;
-}
-.card-title{
-    font-weight: 800;
-}
-/*-------------------*/
-/*--- S-STUDENTS ---*/
-
-.section-std{
-    background-color: #ed2d36;
-    color: white;
-}
-.section-std h3{
-    margin: auto;
-    font-weight: 800;
-}
-
-.section-review{
-    width: 100%;
-    height: auto;  
-    -webkit-background-size: cover !important;
-	-moz-background-size: cover !important;
-	-o-background-size: cover !important;
-	background-size: cover !important;
-	background-position: top !important;
-	background-repeat: no-repeat !important;
-	overflow: hidden !important;
-    background-attachment: fixed !important;
-    color: white;
-}
-
-.student{
-    width: 100%;
-    height: 350px;    
-    -webkit-background-size: cover !important;
-	-moz-background-size: cover !important;
-	-o-background-size: cover !important;
-	background-size: cover !important;
-	background-position: center center !important;
-	background-repeat: no-repeat !important;
-    overflow: hidden !important;
-    position:relative;
-    margin-bottom: 20px;
-    transition: background-image 0.2s;
-}
-.std-2{
-    height: 250px;
-}
-@media (max-width: 992px) { 
-    .student{
-        width: 100%;
-        height: 160px;            
-    }
-    .std-2{
-        height: 120px;
-    }
- }
-.review-cap{
-    text-align: center;
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.2s;
-}
-.student:hover .review-cap{
-    opacity: 1;
-}
-.student:hover{
-    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));
-}
-.review-cap h5{
-    font-weight: 800;
-}
-
-
-/*-------------------*/
-/*--- SECTION-TEACHERS ---*/
-.section-teachers{
-    padding-bottom: 0;
-}
-.section-teachers img{
-    margin: auto;
-}
-.section-teachers h2{
-    font-weight: 800;
-}
-
-/*-------------------*/
 /*--- SECTION-FOOTER ---*/
 
 footer{
@@ -325,5 +232,82 @@ footer h6{
     .section-login{
         display: none;
     }
-    
- }
+
+}
+
+/*-------------------*/
+/*--- S-TEST ---*/
+.section.listening-test{
+    padding-top: 0;
+}
+
+.listening-test h5 a{
+    text-decoration: none;
+    color: #555;
+    font-size: 80%;
+}
+
+.listening-test .card-body ul{
+    list-style-type: none;
+}
+.listening-test .card-body ul li{
+    padding-bottom: 2px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.listening-test .card-body ul li a{
+    text-decoration: none;
+    color: #555;
+    font-size: 70%;
+}
+
+.fas.fa-check{
+    color: deepskyblue;
+}
+.fas.fa-times{
+    color: red;
+}
+
+
+
+
+
+
+
+
+
+/*
+Parrents
+    Click part
+    id="accordion"
+        class=card-header.id="heading-1"
+        href="#collapse-1"
+        aria-control="collapse-1"
+    Content part
+        id="collapse-1"
+        data-parent = "accordion"
+        aria-labelledby = "heading-1"
+
+    Child-1
+        Click part
+        id="accordion-1"
+            class=card-header.id="heading-1-1"
+            href="#collapse-1-1"
+            aria-control="collapse-1-1"
+        Content part
+            id="collapse-1-1"
+            data-parent = "accordion-1"
+            aria-labelledby = "heading-1-1"
+    Child-2
+        Click part
+        id="accordion-1"
+            class=card-header.id="heading-1-2"
+            href="#collapse-1-2"
+            aria-control="collapse-1-2"
+        Content part
+            id="collapse-1-2"
+            data-parent = "accordion-1-2"
+            aria-labelledby = "heading-1-2"
+
+
+
+*/

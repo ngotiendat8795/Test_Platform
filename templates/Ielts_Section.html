@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SexyPrep Company Landing Page</title>
+    <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
     <link
         href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext"
         rel="stylesheet">
@@ -22,13 +23,22 @@
     <section class="section-login">
         <div class="container">
             <div class="row">
-                <div class="col-sm-3">
-                    <div class="user">Welcome stranger!</div>
-                </div>
-                <div class="col-sm-4 offset-sm-5 sec">
-                    <a href="#">Login</a>
-                    <a href="#">Sign up</a>
-                </div>
+                {%if session%}
+                    <div class="col-sm-3">
+                        <div class="user"><a href="/">Welcome {{session.username}}</a></div>
+                    </div>
+                    <div class="col-sm-4 offset-sm-5 sec">
+                        <a href="/logout">Sign out</a>
+                    </div>
+                {%else%}
+                    <div class="col-sm-3">
+                        <div class="user">Welcome stranger!</div>
+                    </div>
+                    <div class="col-sm-4 offset-sm-5 sec">
+                        <a href="/login">Login</a>
+                    </div>
+                {%endif%}
+
             </div>
         </div>
     </section>
@@ -37,15 +47,14 @@
     <!-- --- NAV BAR --- -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
-                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <i style="color:white;" class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <a class="navbar-brand" href="/"><img src="../static/image/logo-2.png" alt=""></a>
+                <a class="navbar-brand" href="/"><img src="../static/images/logo-2.png" alt=""></a>
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/ielts">IELTS <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/ielts-section">IELTS <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">TOEFL</a>
@@ -59,14 +68,23 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">FORUM</a>
                     </li>
-                    <li class="nav-item hidden-item">
-                        <a class="nav-link" href="#">LOGIN</a>
-                    </li>
-                    <li class="nav-item hidden-item">
-                        <a class="nav-link" href="#">SIGN UP</a>
-                    </li>
+                    {%if session%}
+                        <li class="nav-item hidden-item">
+                            <a class="nav-link" href="/user">USER INFO</a>
+                        </li>
+                        <li class="nav-item hidden-item">
+                            <a class="nav-link" href="/logout">LOGOUT</a>
+                        </li>
+                    {%else%}
+                        <li class="nav-item hidden-item">
+                            <a class="nav-link" href="/login">LOGIN</a>
+                        </li>
+                        <li class="nav-item hidden-item">
+                            <a class="nav-link" href="/sign-up">SIGN UP</a>
+                        </li>
+                    {%endif%}
                 </ul>
-
+                
             </div>
         </div>
     </nav>
@@ -78,7 +96,7 @@
 
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <div class="carousel-item-content" style="background:url('../static/image/slide-1.jpg')">
+                        <div class="carousel-item-content" style="background:url('../static/images/slide-1.jpg')">
                         </div>
                         <div class="carousel-caption d-none d-md-block">                            
                             <a href="" class="btn btn-danger">IELTS SECTION</a>
@@ -91,7 +109,6 @@
         </div>
     </header>
     <!-- --- HEADER --- -->
-    <!-- --- INTRO --- -->
     <section class="section section-intro">
         <div class="container">
             <div class="row">
@@ -102,8 +119,6 @@
             </div>
         </div>
     </section>
-    <!-- --- INTRO --- -->
-    <!-- --- S TEST --- -->
     <section class="section listening-test">
         <div class="container">
             <div id="accordion">
@@ -238,8 +253,11 @@
             </div>
         </div>
     </section>
-    
-    <!-- --- S TEST --- -->
+
+
+
+
+
 
     <!-- --- FOOTER --- -->
     <footer class="section section-footer">
