@@ -3,6 +3,19 @@ from bson.objectid import ObjectId
 from users import users
 app = Flask(__name__)
 
+from pymongo import MongoClient
+
+mongo_uri = "mongodb+srv://admin:admin@c4e28cluster-chzuv.mongodb.net/test?retryWrites=true"
+
+client = MongoClient(mongo_uri)
+ielts_database = client.db_ielts
+
+reading_test = ielts_database["Reading_Test"]
+writing_test = ielts_database["Writing_Test"]
+reading_answer = ielts_database["reading_answer"]
+answer_key = ielts_database["Answer_Key"]
+
+
 # HomePage
 @app.route('/')
 def index():
@@ -37,7 +50,6 @@ def sign_up():
         "full_name" : full_name,
         "username" : username,
         "password" : password,
-        "test" : []
       }
       users.insert_one(new_user)
       return redirect(url_for('login'))
@@ -79,9 +91,102 @@ def logout():
   return redirect('/')
     
 
-@app.route('/ielts/result')
-def result():
-    return render_template('Result.html')
+@app.route('/ielts/ielts-cambridge<id1>/reading-test<id2>', methods = ["GET", "POST"])
+def reading_template(id1,id2):
+    if request.method == "GET":
+        Test_ID = "IC"+str(id1)+"_T"+str(id2)
+        Test_Content = reading_test.find_one({"Test_ID":Test_ID})
+        return render_template('Reading_Test.html', Test_Content=Test_Content)
+    elif request.method == "POST":
+      Test_ID = "IC"+str(id1)+"_T"+str(id2)
+      time_accessed = reading_answer.find({"USER":"ngotiendat8795","TEST_ID": Test_ID,"Section" : "R"}).count()
+      form = request.form
+      answer_sheet = {
+      "USER":"ngotiendat8795",
+      "TEST_ID": Test_ID,
+      "Section" : "R",
+      "Time_Acessed" : time_accessed + 1,
+      }
+      for i in range(1,41):
+
+        answer_id = "IC"+str(id1)+"_T"+str(id2)+"_R_"+str(i)
+        try:
+          answer_value = form[answer_id]
+          if answer_value == "":
+            answer_value = "N/A"
+        except KeyError:
+          answer_value = "N/A"
+        answer_sheet[answer_id] = answer_value
+      reading_answer.insert_one(answer_sheet)
+      return redirect('/ielts/ielts-cambridge{0}/test{1}/result'.format(id1,id2))
+
+
+@app.route('/ielts/ielts-cambridge<id1>/listening-test<id2>', methods = ["GET", "POST"])
+def listening_test(id1,id2):
+    if request.method == "GET":
+        return render_template('Listening_Test.html')
+    elif request.method == "POST":
+      Test_ID = "IC"+str(id1)+"_T"+str(id2)
+      time_accessed = reading_answer.find({"USER":"ngotiendat8795","TEST_ID": Test_ID,"Section" : "L"}).count()
+      form = request.form
+      answer_sheet = {
+      "USER":"ngotiendat8795",
+      "TEST_ID": Test_ID,
+      "Section" : "L",
+      "Time_Acessed" : time_accessed + 1,
+      }
+      for i in range(1,41):
+
+        answer_id = "IC"+str(id1)+"_T"+str(id2)+"_L_"+str(i)
+        try:
+          answer_value = form[answer_id]
+          if answer_value == "":
+            answer_value = "N/A"
+        except KeyError:
+          answer_value = "N/A"
+        answer_sheet[answer_id] = answer_value
+      reading_answer.insert_one(answer_sheet)
+      return redirect('/ielts/ielts-cambridge{0}/test{1}/result'.format(id1,id2))
+  
+
+@app.route('/ielts/ielts-cambridge<id1>/writing-test<id2>',methods = ["GET", "POST"])
+def writing_template(id1,id2):
+    if request.method == "GET":
+      Test_ID = "IC"+str(id1)+"_T"+str(id2)
+      Test_Content = writing_test.find_one({"Test_ID":Test_ID})
+      return render_template('Writing_Test.html', Test_Content=Test_Content)
+    elif request.method == "POST":
+      Test_ID = "IC"+str(id1)+"_T"+str(id2)
+      time_accessed = reading_answer.find({"USER":"ngotiendat8795","TEST_ID": Test_ID,"Section" : "W"}).count()
+      form = request.form
+      answer_sheet = {
+      "USER":"ngotiendat8795",
+      "TEST_ID": Test_ID,
+      "Section" : "W",
+      "Time_Acessed" : time_accessed + 1,
+      }
+      for i in range(1,3):
+
+        answer_id = "IC"+str(id1)+"_T"+str(id2)+"_W_"+str(i)
+        try:
+          answer_value = form[answer_id]
+          if answer_value == "":
+            answer_value = "N/A"
+        except KeyError:
+          answer_value = "N/A"
+        answer_sheet[answer_id] = answer_value
+      reading_answer.insert_one(answer_sheet)
+      return redirect('/ielts/ielts-cambridge{0}/test{1}/result'.format(id1,id2))
+
+@app.route('/ielts/ielts-cambridge<id1>/test<id2>/result')
+def result(id1,id2):
+  Test_ID = "IC"+str(id1)+"_T"+str(id2)
+  reading_history = reading_answer.find({"USER":"ngotiendat8795","TEST_ID": Test_ID,"Section" : "R"})
+  listening_history = reading_answer.find({"USER":"ngotiendat8795","TEST_ID": Test_ID,"Section" : "L"})
+  writing_history = reading_answer.find({"USER":"ngotiendat8795","TEST_ID": Test_ID,"Section" : "w"})
+  
+  return render_template('Result.html',Test_ID=Test_ID,Answer_Key=answer_key,reading_history=reading_history,listening_history=listening_history,writing_history=writing_history)
+
 
 
 if __name__ == '__main__':

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='Reading_Test.css')}}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+
+
+
+
+</head>
+
+
+<body>
+
+<div class="interface">
+
+  <div id="header">
+    <div> <button>USER NAME </button></div>
+    <div id="clock_area">
+      <div> <i class="fas fa-clock"></i> </div>
+      <div> <p id="clockdiv"></p> </div>
+    </div>
+    <div> <button> SETIING </button> </div>
+    
+    </div>
+
+
+<!-- Script for Coundown Timer -->
+<Script> 
+
+        // 60 minutes from now
+        var time_in_minutes = 60;
+        var current_time = Date.parse(new Date());
+        var deadline = new Date(current_time + time_in_minutes*60*1000);
+        
+        
+        function time_remaining(endtime) {
+          var t = Date.parse(endtime) - Date.parse(new Date());
+          var minutes = Math.floor( (t/1000/60) );
+          var seconds = Math.floor( (t/1000) % 60 );
+          return {'total':t, 'minutes':minutes, 'seconds':seconds};
+        }
+
+        function run_clock(id,endtime){
+          var clock = document.getElementById(id);
+          function update_clock(){
+            var t = time_remaining(endtime);
+            var display = t.minutes
+            clock.innerHTML = 'TIME LEFT '+ display + ':' + t.seconds ;
+            if(t.total<=0){ clearInterval(timeinterval); window.location.replace("http://127.0.0.1:5000/ielts/cambridge/result") }
+          }
+          update_clock(); // run function once at first to avoid delay
+          var timeinterval = setInterval(update_clock,1000);
+        }
+        run_clock("clockdiv",deadline);
+        
+</script>
+
+<form id="reading_form" method = "POST" >
+
+<div class="Passage_Content" id="Passage_1">
+
+
+  <div id="test_intro">
+    <div id="para_header"> <h4>{{ Test_Content.Header_Passage_1 }}</h4></div>
+    <div id="para_intro"> <p> {{ Test_Content.Intro_1 }} </p></div>
+
+  </div>
+
+  <div class="test_area">
+
+        <div class="para_area">
+
+            <h4 style="text-align:center">{{ Test_Content.Para_Title_1 }}</h4>
+            <h5 style="text-align:center"> <i>{{ Test_Content.Para_Intro_1 }}</i></h5>
+            <pre> {{ Test_Content.Para_Body_1 }} </pre>
+          </div>
+       
+        <div class="answer_area">
+
+            <h4> <i>Quetion 1-7</i></h4>
+            <p><i>Comlete the table below</i></p>
+            <p><i>Choose <b>ONE WORD ONLY</b> from the passage for each answer.</i></p>
+
+                <table>
+                  <tr>
+                    <td> <b>Section of Website</b></td>
+                    <td><b>Comments</b></td>
+                  </tr>
+                  <tr>
+                    <td>Database of tourism services</td>
+                    <td>
+                      <li>easy for tourism-related businesses to get on the list</li>
+                      <li>allowed businesses to <input name="IC13_T1_R_1" type="text" placeholder="1"> information regularly  </li>
+                      <li>provided a country-wide evaluation of businesses, including their impact on the <input name="IC13_T1_R_2" type="text" placeholder="2"></li>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td> Special features on local topic</td>
+                    <td> 
+                      <li> eg. an interview with a former sports <input name="IC13_T1_R_3" type="text" placeholder="3"> and an interactive tour of various location used in <input name="IC13_T1_R_4" type="text" placeholder="4">  </li>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td> Information on driving routes</td>
+                    <td>
+                      <li> varied depending on the <input name="IC13_T1_R_5" type="text" placeholder="5">  </li>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Travel Planner</td>
+                    <td> 
+                      <li> included a map showing selected places, detailed of public transport and local <input name="IC13_T1_R_6" type="text" placeholder="6"> </li>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>'Your Words'</td>
+                    <td>
+                      <li> travellers could send a link to theirs <input name="IC13_T1_R_7" type="text" placeholder="7"> </li>
+                    </td>
+                  </tr>
+
+                </table>
+
+            <h4> <i>Quetion 8-13</i></h4>
+            <p><i>Do the following statements agree with the information given in Reading Passage 1?</i></p>
+            <p><i><b>TRUE      </b> if the statement agrees with the information </i></p>
+            <p><i><b>FALSE     </b> if the statement contradicts the information </i></p>
+            <p><i><b>NOT GIVEN </b> if the statement agrees with the information </i></p>
+
+            
+            <button type="button" class="collapsible"><b>8. </b> The website www.newzealand.com aimed to provide ready-made itineraries and packages for travel companies and idividual tourist.  </button>
+              <div class="content">
+                <p> <input type="radio" name="IC13_T1_R_8" value="TRUE" /> TRUE </p>
+                <p> <input type="radio" name="IC13_T1_R_8" value="FALSE" /> FALSE </p>
+                <p> <input type="radio" name="IC13_T1_R_8" value="NOT GIVEN" /> NOT GIVEN </p>
+
+              </div>
+
+
+            <button type="button" class="collapsible"><b>9. </b>It was found that most visitors started searching on the website by geographical location </button>
+            <div class="content">
+
+                <p> <input type="radio" name="IC13_T1_R_9" value="TRUE" /> TRUE </p>
+                <p> <input type="radio" name="IC13_T1_R_9" value="FALSE" /> FALSE </p>
+                <p> <input type="radio" name="IC13_T1_R_9" value="NOT GIVEN" /> NOT GIVEN </p> 
+
+              </div>
+            <button type="button" class="collapsible"><b>10. </b>According to research, 26% of visitor satisfaction is related to their accomodation</button>
+            <div class="content">
+                <p> <input type="radio" name="IC13_T1_R_10" value="TRUE" /> TRUE </p>
+                <p> <input type="radio" name="IC13_T1_R_10" value="FALSE" /> FALSE </p>
+                <p> <input type="radio" name="IC13_T1_R_10" value="NOT GIVEN" /> NOT GIVEN </p>
+              </div>
+            <button type="button" class="collapsible"><b>11. </b>Visitors to New Zealand like to become involved in the local culture</button>
+            <div class="content">
+                <p> <input type="radio" name="IC13_T1_R_11" value="TRUE" /> TRUE </p>
+                <p> <input type="radio" name="IC13_T1_R_11" value="FALSE" /> FALSE </p>
+                <p> <input type="radio" name="IC13_T1_R_11" value="NOT GIVEN" /> NOT GIVEN </p>
+              </div>
+            <button type="button" class="collapsible"><b>12. </b>Visitor like staying in small hotels in New Zealand rather than in larger ones.</button>
+            <div class="content">
+                <p> <input type="radio" name="IC13_T1_R_12" value="TRUE" /> TRUE </p>
+                <p> <input type="radio" name="IC13_T1_R_12" value="FALSE" /> FALSE </p>
+                <p> <input type="radio" name="IC13_T1_R_12" value="NOT GIVEN" /> NOT GIVEN </p>
+              </div>
+            <button type="button" class="collapsible"><b>13. </b>many visitors feel it is unlikely that they will return to New Zealand after their visit</button>
+            <div class="content">
+                <p> <input type="radio" name="IC13_T1_R_13" value="TRUE"/> TRUE </p>
+                <p> <input type="radio" name="IC13_T1_R_13" value="FALSE"/> FALSE </p>
+                <p> <input type="radio" name="IC13_T1_R_13" value="NOT GIVEN"/> NOT GIVEN </p>
+              </div>
+
+
+
+
+        </div>
+    </div>
+</div>  
+
+
+
+<div class="Passage_Content" id="Passage_2">
+
+
+    <div id="test_intro">
+      <div id="para_header"> <h4>{{ Test_Content.Header_Passage_2 }}</h4></div>
+      <div id="para_intro"> <p> {{ Test_Content.Intro_2 }} </p></div>
+  
+    </div>
+  
+    <div class="test_area">
+          <div class="para_area">
+  
+              <h4 style="text-align:center">{{ Test_Content.Para_Title_2 }}</h4>
+              <h5 style="text-align:center"><i>{{ Test_Content.Para_Intro_2 }}</i></h5>
+              <pre> {{ Test_Content.Para_Body_2 }} </pre>
+            </div>
+  
+          <div class="answer_area">
+
+              <h4> <i>Quetion 14-19</i></h4>
+              <p><i>Choose the correct heading for each paragraph from the list of heading below</i></p>
+              <p><i>Write the correct number,<b> I-VIII</b>, into boxes 14-19 </i></p>
+              <div style="border:1px solid grey; padding: 5px">
+                <p style="text-align:center"><b>List of Headings</b></p>
+                <p><b>I</b>    The productive outcomes that may result from boredom</p>
+                <p><b>II</b>   What teachers can do to prevent boredom</p>
+                <p><b>III</b>  A new explanation and a new cure for boredom</p>
+                <p><b>IV</b>   Problems with a scientific approach to boredom</p>
+                <p><b>V</b>    A potential danger arising from boredom</p>
+                <p><b>VI</b>   Creating a system of classification for feelings of boredom</p>
+                <p><b>VII</b>  Age groups most affected by boredom</p>
+                <p><b>VIII</b> Identifying those most affected by boredom</p>
+
+              </div>
+
+              <p><b>14 </b>Paragraph <b>A</b> <input type="text" name="IC13_T1_R_14" placeholder="14"></p>
+              <p><b>15 </b>Paragraph <b>B</b> <input type="text" name="IC13_T1_R_15" placeholder="15"></p>
+              <p><b>16 </b>Paragraph <b>C</b> <input type="text" name="IC13_T1_R_16" placeholder="16"></p>
+              <p><b>17 </b>Paragraph <b>D</b> <input type="text" name="IC13_T1_R_17" placeholder="17"></p>
+              <p><b>18 </b>Paragraph <b>E</b> <input type="text" name="IC13_T1_R_18" placeholder="18"></p>
+              <p><b>19 </b>Paragraph <b>F</b> <input type="text" name="IC13_T1_R_19" placeholder="19"></p>
+
+
+              <h4> <i>Quetion 20-23</i></h4>
+              <p><i>Look at follwing people and the list of ideas below.</i></p>
+              <p><i> Match each person with the correct idea, write the correct letter,<b> A-E</b>, into boxes 20-23 </i></p>
+
+              <p><b>20 </b>Peter Toohey <input type="text" name="IC13_T1_R_20" placeholder="20"></p>
+              <p><b>21 </b>Thomas Goetz <input type="text" name="IC13_T1_R_21" placeholder="21"></p>
+              <p><b>22 </b>John Eastwood <input type="text" name="IC13_T1_R_22" placeholder="22"></p>
+              <p><b>23 </b>Francoise Wemelsfelder <input type="text" name="IC13_T1_R_23" placeholder="23"> </p>
+
+              <div style="border:1px solid grey; padding: 5px">
+                <p style="text-align:center"><b>List of Ideas</b></p>
+                <p><b>A</b> The way we live today may encoourage boredom.</p>
+                <p><b>B</b> One sort of boredom is worse than all the others.</p>
+                <p><b>C</b> Levels of boredom may fall in the future.</p>
+                <p><b>D</b> Trying to cope with boredom can increase its negative effects.</p>
+                <p><b>E</b> Boredome may encoourage us to avoid an unpleasant experience.</p>
+              </div>
+
+              <h4> <i>Quetion 24-26</i></h4>
+              <p><i>Complete the summary bellow, choose <b>ONE WOR ONLY </b> from the passage for each answer</i></p>
+              <p><i> Write your answer into boxes 24-26 </i></p>
+              <div>
+                <p style="text-align :center"><b>Responses to boredom</b></p>
+                <p>For John Eastwood, the center feature of boredom is that peple cannot <input type="text" name="IC13_T1_R_24" placeholder="24">, due to a failure in what he calls the 'attention system', and as a result they become frustrated and irritable. His team suggests that those for whom <input type="text" name="IC13_T1_R_25" placeholder="25"> is an important aim in life may have problems in coping with boredem, whereas those who have characteristic of <input type="text" name="IC13_T1_R_26" placeholder="26"> can generally cope with it.</p>
+              </div>
+              
+
+
+          </div>
+
+      </div>
+  </div>  
+
+  <div class="Passage_Content" id="Passage_3">
+
+
+      <div id="test_intro">
+        <div id="para_header"> <h4>{{ Test_Content.Header_Passage_3 }}</h4></div>
+        <div id="para_intro"> <p> {{ Test_Content.Intro_3 }} </p></div>
+    
+      </div>
+    
+      <div class="test_area">
+            <div class="para_area">
+    
+                <h4 style="text-align:center">{{ Test_Content.Para_Title_3 }}</h4>
+                <h5 style="text-align:center"> <i>{{ Test_Content.Para_Intro_3 }}</i></h5>
+                <pre> {{ Test_Content.Para_Body_3 }} </pre>
+              </div>
+    
+            <div class="answer_area">
+
+                <h4> <i>Quetion 27-31</i></h4>
+                <p><i>Choose the correct answer.</i></p>
+
+                <button type="button" class="collapsible"><b>27. </b> What is the witer suggesting about computer-procuded works in the first paragraph?</button>
+                <div class="content">
+                  <p> <input type="radio" name="IC13_T1_R_27" value="A" />People's acceptance of them can vary considerably. </p>
+                  <p> <input type="radio" name="IC13_T1_R_27" value="B" />A geart deal of progress has already been attained in this field. </p>
+                  <p> <input type="radio" name="IC13_T1_R_27" value="C" />They have had more success in some artistic genres than in others. </p>
+                  <p> <input type="radio" name="IC13_T1_R_27" value="D" />The advances are not as significant as the public believes them to be. </p>
+                </div>
+
+                <button type="button" class="collapsible"><b>28. </b>According to Geraint Wiggins, why are many people worried by computer art?</button>
+                <div class="content">
+                  <p> <input type="radio" name="IC13_T1_R_28" value="A"/>It is aesthetically inferior to human art.</p>
+                  <p> <input type="radio" name="IC13_T1_R_28" value="B" />It may ultimately supersede human art.</p>
+                  <p> <input type="radio" name="IC13_T1_R_28" value="C"/>It undermines a fundamental human quality. </p>
+                  <p> <input type="radio" name="IC13_T1_R_28" value="D" />It will lead to a deterioration in human ability</p>
+  
+                </div>
+
+                <button type="button" class="collapsible"><b>29. </b>What is a key difference between Aaron and the Painting Fool?</button>
+                <div class="content">
+                  <p> <input type="radio" name="IC13_T1_R_29" value="A" />its programmer's background</p>
+                  <p> <input type="radio" name="IC13_T1_R_29" value="B" />public response to its work</p>
+                  <p> <input type="radio" name="IC13_T1_R_29" value="C" />the source of its subject matter</p>
+                  <p> <input type="radio" name="IC13_T1_R_29" value="D" />the technical standard of its output</p>
+  
+                </div>
+
+                <button type="button" class="collapsible"><b>30. </b>What point does Simon Colton make in the fourth paragraph?</button>
+                <div class="content">
+                  <p> <input type="radio" name="IC13_T1_R_30" value="A" />Softwere-produced art is often dismissed as childish and simplistic.</p>
+                  <p> <input type="radio" name="IC13_T1_R_30" value="B" />The same concepts of creativity should not be applied to all forms of art.</p>
+                  <p> <input type="radio" name="IC13_T1_R_30" value="C" />It is unreasonable to expect a machine to be as imaginative as a human being.</p>
+                  <p> <input type="radio" name="IC13_T1_R_30" value="D" />People tend to judge computer art and human art according to different criteria.</p>
+  
+                </div>
+
+                <button type="button" class="collapsible"><b>31. </b>The writer refers to the painting of a chair as an example of computer art which</button>
+                  <div class="content">
+                    <p> <input type="radio" name="IC13_T1_R_31" value="A" />achieves a particularly striking effect.</p>
+                    <p> <input type="radio" name="IC13_T1_R_31" value="B" />exhibits a certain level of genuine artistic skill.</p>
+                    <p> <input type="radio" name="IC13_T1_R_31" value="C" />closely resembles that of a well-known artist.</p>
+                    <p> <input type="radio" name="IC13_T1_R_31" value="D" />hightlights the technical limitations of the sofwere.</p>
+    
+                  </div>
+
+                <h4> <i>Quetion 32-37</i></h4>
+                <p><i>Complete each sentence with the correct ending, <b>A-G</b> below</i></p>
+                <p><i>Write the correct letter into answer boxes 32-37</i></p>
+
+                <div style="border:1px solid grey; padding: 5px">
+                    <p style="text-align:center"><b>List of Ideas</b></p>
+                    <p><b>A</b> generating work that was virtually indistinguishable from that of humans</p>
+                    <p><b>B</b> knowing weather its was the work of humans of sofwere</p>
+                    <p><b>C</b> producing work entirely dependent on the imagination of its creator</p>
+                    <p><b>D</b> comparing the artistic achievements of humans and computers</p>
+                    <p><b>E</b> revealing the technical details of his program</p>
+                    <p><b>F</b> persuading the public to appreciate the computer art.</p>
+                    <p><b>G</b> discovering that it was the product of a computer program.</p>
+
+                  </div>
+
+                  <p><b>32 </b>Simon Colton says it is important to consider the long-term view when <input type="text" name="IC13_T1_R_32" placeholder="32"></p>
+                  <p><b>33 </b>David Cope's EMI softwere surprised people by  <input type="text" name="IC13_T1_R_33" placeholder="33"></p>
+                  <p><b>34 </b>Geraint Wiggins criticised Cope for not <input type="text" name="IC13_T1_R_34" placeholder="34"></p>
+                  <p><b>35 </b>Douglas Hofstadter claimed that EMI was <input type="text" name="IC13_T1_R_35" placeholder="35"></p>
+                  <p><b>36 </b>Audiences who had listened to EMI's music became angry after <input type="text" name="IC13_T1_R_36" placeholder="36"></p>
+                  <p><b>37 </b>The participants in David Moffat's study had to access music without <input type="text" name="IC13_T1_R_37" placeholder="37"></p>
+
+
+                  <h4> <i>Quetion 38-40</i></h4>
+                  <p><i>Do the following statements agree with the claims of the writer in Reading Passage 3?</i></p>
+                  <p><i><b>YES       </b> if the statement agrees with the claims of writer </i></p>
+                  <p><i><b>NO        </b> if the statement contradicts the claims of writer </i></p>
+                  <p><i><b>NOT GIVEN </b> if the statement agrees with the claims of writer </i></p>
+      
+                  
+                  <button type="button" class="collapsible"><b>38. </b>Moffat's research may help explain people's reactions to EMI.  </button>
+                    <div class="content">
+                      <p> <input type="radio" name="IC13_T1_R_38" value="YES" /> YES </p>
+                      <p> <input type="radio" name="IC13_T1_R_38" value="NO" /> NO </p>
+                      <p> <input type="radio" name="IC13_T1_R_38" value="NOT GIVEN"/> NOT GIVEN </p>
+                    </div>
+
+                    <button type="button" class="collapsible"><b>39. </b>The non-experts in Moffat's study all responded in a predictable way.  </button>
+                    <div class="content">
+                      <p> <input type="radio" name="IC13_T1_R_39" value="YES" /> YES </p>
+                      <p> <input type="radio" name="IC13_T1_R_39" value="NO" /> NO </p>
+                      <p> <input type="radio" name="IC13_T1_R_39" value="NOT GIVEN" /> NOT GIVEN </p>
+                    </div>
+
+                    <button type="button" class="collapsible"><b>40. </b>Justin Kruger's findings cast doubt on Paul Bloom's theory about people's prejudice towards computer art.  </button>
+                    <div class="content">
+                      <p> <input type="radio" name="IC13_T1_R_40" value="YES" /> YES </p>
+                      <p> <input type="radio" name="IC13_T1_R_40" value="NO"/> NO </p>
+                      <p> <input type="radio" name="IC13_T1_R_40" value="NOT GIVEN"/> NOT GIVEN </p>
+                    </div>
+    
+            </div>
+        
+        </div>
+    </div> 
+    
+  </form>
+
+<div id="navigate_tab">
+  <div id="passage_tab">
+    <button class="tablink" onclick="openPassage('Passage_1', this)" id="defaultOpen">PASSAGE 1</button>
+    <button class="tablink" onclick="openPassage('Passage_2', this)">PASSAGE 2</button>
+    <button class="tablink" onclick="openPassage('Passage_3', this)">PASSAGE 3</button>
+  </div>
+  <div id="end_tab">
+
+    <button id="end_button" onclick="submitFunction()">END SECTION</button>
+    <script>
+      function submitFunction() {
+        if (confirm("Do you want to end the test?")) {document.getElementById('reading_form').submit() }
+      }
+    </script>
+
+  </div>
+
+  </div>
+</div>
+
+<!-- Script for collapsible -->
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+  </script>
+ 
+<script>
+
+//Script for passage fractions
+function openPassage(Passage_ID,elmnt) {
+  var i, passage_content;
+  passage_content = document.getElementsByClassName("Passage_Content");
+  for (i = 0; i < passage_content.length; i++) {
+    passage_content[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(Passage_ID).style.display = "block";
+  elmnt.style.backgroundColor = color;
+
+}
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+
+
+  </div>
+
+</body>
+</html>
