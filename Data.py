@@ -1,11 +1,13 @@
 from pymongo import MongoClient
 import xlrd
 
-mongo_uri = "mongodb+srv://admin:admin@cluster0-njvqs.mongodb.net/test?retryWrites=true"
+mongo_uri = "mongodb+srv://admin:admin@c4e28cluster-chzuv.mongodb.net/test?retryWrites=true"
 
 client = MongoClient(mongo_uri)
 ielts_database = client.db_ielts
-reading_test = ielts_database["reading_test"]
+
+reading_test = ielts_database["Reading_Test"]
+
 
 wb = xlrd.open_workbook("Data.xlsx")
 sheet_names = wb.sheet_names()
@@ -23,12 +25,11 @@ for sheet_name in sheet_names:
 
     Header = sheet_data.row_values(0)
 
+    # print(Header)
     for i in range(sheet_data.nrows-1):
         data_row = sheet_data.row_values(i+1)
         record = dict(zip(Header,data_row))
         Passage_ID = sheet_data.cell_value(i+1, 0)
-        exist_testing = collection_on_mongo.find_one({"Passage_ID": Passage_ID})
+        exist_testing = collection_on_mongo.find_one({Header[0]:data_row[0]})
         if exist_testing == None:
-                collection_on_mongo.insert_one(record)
-
-
+          collection_on_mongo.insert_one(record)

@@ -14,7 +14,7 @@ reading_test = ielts_database["Reading_Test"]
 writing_test = ielts_database["Writing_Test"]
 reading_answer = ielts_database["reading_answer"]
 answer_key = ielts_database["Answer_Key"]
-
+band_score = ielts_database["Band_Score"]
 
 # HomePage
 @app.route('/')
@@ -102,7 +102,7 @@ def reading_template(id1,id2):
       time_accessed = reading_answer.find({"USER":"ngotiendat8795","TEST_ID": Test_ID,"Section" : "R"}).count()
       form = request.form
       answer_sheet = {
-      "USER":"ngotiendat8795",
+      "USER":session['username'],
       "TEST_ID": Test_ID,
       "Section" : "R",
       "Time_Acessed" : time_accessed + 1,
@@ -118,7 +118,7 @@ def reading_template(id1,id2):
           answer_value = "N/A"
         answer_sheet[answer_id] = answer_value
       reading_answer.insert_one(answer_sheet)
-      return redirect('/ielts/ielts-cambridge{0}/test{1}/result'.format(id1,id2))
+      return redirect('/ielts/ielts-cambridge{0}/reading-test{1}/result'.format(id1,id2))
 
 
 @app.route('/ielts/ielts-cambridge<id1>/listening-test<id2>', methods = ["GET", "POST"])
@@ -130,7 +130,7 @@ def listening_test(id1,id2):
       time_accessed = reading_answer.find({"USER":"ngotiendat8795","TEST_ID": Test_ID,"Section" : "L"}).count()
       form = request.form
       answer_sheet = {
-      "USER":"ngotiendat8795",
+      "USER":session["username"],
       "TEST_ID": Test_ID,
       "Section" : "L",
       "Time_Acessed" : time_accessed + 1,
@@ -146,7 +146,7 @@ def listening_test(id1,id2):
           answer_value = "N/A"
         answer_sheet[answer_id] = answer_value
       reading_answer.insert_one(answer_sheet)
-      return redirect('/ielts/ielts-cambridge{0}/test{1}/result'.format(id1,id2))
+      return redirect('/ielts/ielts-cambridge{0}/listening-test{1}/result'.format(id1,id2))
   
 
 @app.route('/ielts/ielts-cambridge<id1>/writing-test<id2>',methods = ["GET", "POST"])
@@ -160,7 +160,7 @@ def writing_template(id1,id2):
       time_accessed = reading_answer.find({"USER":"ngotiendat8795","TEST_ID": Test_ID,"Section" : "W"}).count()
       form = request.form
       answer_sheet = {
-      "USER":"ngotiendat8795",
+      "USER":session["username"],
       "TEST_ID": Test_ID,
       "Section" : "W",
       "Time_Acessed" : time_accessed + 1,
@@ -176,16 +176,32 @@ def writing_template(id1,id2):
           answer_value = "N/A"
         answer_sheet[answer_id] = answer_value
       reading_answer.insert_one(answer_sheet)
-      return redirect('/ielts/ielts-cambridge{0}/test{1}/result'.format(id1,id2))
+      return redirect('/ielts/ielts-cambridge{0}/writing-test{1}/result'.format(id1,id2))
 
-@app.route('/ielts/ielts-cambridge<id1>/test<id2>/result')
-def result(id1,id2):
+@app.route('/ielts/ielts-cambridge<id1>/<id3>-test<id2>/result')
+def result(id1,id2,id3):
   Test_ID = "IC"+str(id1)+"_T"+str(id2)
-  reading_history = reading_answer.find({"USER":"ngotiendat8795","TEST_ID": Test_ID,"Section" : "R"})
-  listening_history = reading_answer.find({"USER":"ngotiendat8795","TEST_ID": Test_ID,"Section" : "L"})
-  writing_history = reading_answer.find({"USER":"ngotiendat8795","TEST_ID": Test_ID,"Section" : "w"})
-  
-  return render_template('Result.html',Test_ID=Test_ID,Answer_Key=answer_key,reading_history=reading_history,listening_history=listening_history,writing_history=writing_history)
+  reading_history = reading_answer.find({"USER":session['username'],"TEST_ID": Test_ID,"Section" : "R"})
+  time_accessed_r = reading_history.count()
+  if time_accessed_r >= 1:
+    latest_result_r = reading_history[time_accessed_r-1]
+
+  listening_history = reading_answer.find({"USER":session['username'],"TEST_ID": Test_ID,"Section" : "L"})
+  time_accessed_l = listening_history.count()
+  if time_accessed_l >= 1:
+    latest_result_l = listening_history[time_accessed_l-1]
+
+  writing_history = reading_answer.find({"USER":session['username'],"TEST_ID": Test_ID,"Section" : "W"})
+  time_accessed_w = writing_history.count()
+  if time_accessed_w >= 1:
+    latest_result_w = writing_history[time_accessed_w-1]
+
+  if id3 == "reading":
+    return render_template('Result_R.html',Test_ID=Test_ID,Answer_Key=answer_key,reading_history=reading_history,latest_result_r=latest_result_r,band_score=band_score)
+  elif id3 == "listening":
+    return render_template('Result_L.html',Test_ID=Test_ID,Answer_Key=answer_key,listening_history=listening_history,latest_result_l=latest_result_l,band_score=band_score)
+  else:
+    return render_template('Result_W.html',Test_ID=Test_ID,Answer_Key=answer_key,writing_history=writing_history,latest_result_w=latest_result_w)
 
 
 

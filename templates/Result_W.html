@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<style>
+  
+table, td {
+  border: 1px solid black;
+}
+
+</style>
+
+<body>
+  
+<!-- Writing SS -->
+
+<div>
+
+   
+
+
+<h4>Your Essay</h4>
+<h3>Task 1:</h3>
+{% set question_id_1 = Test_ID|string + "_W_" + 1|string %}
+{{latest_result_w[question_id_1]}}
+
+<h3>Task 2:</h3>
+{% set question_id_2 = Test_ID|string + "_W_" + 2|string %}
+{{latest_result_w[question_id_2]}}
+
+    
+</div>
+    
+
+
+
+
+
+</body>
+</html>
+
