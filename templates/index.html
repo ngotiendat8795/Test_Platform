@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SexyPrep Company Landing Page</title>
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
 
 </head>
-<body>  
+
+<body>
     <!-- --- LOGIN/SIGN UP --- -->
-    <section class="section-login">
+    {#<section class="section-login">
         <div class="container">
             <div class="row">
                 {%if session%}
@@ -35,17 +41,18 @@
 
             </div>
         </div>
-    </section>
+    </section>#}
     <!-- --- LOGIN/SIGN UP --- -->
-    
+
     <!-- --- NAV BAR --- -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <i style="color:white;" class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <a class="navbar-brand" href="/"><img src="../static/images/logo-2.png" alt=""></a>
+                <a class="navbar-brand" href="/"><img src="static/image/logo-2.png" alt=""></a>
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
                         <a class="nav-link" href="/ielts-section">IELTS <span class="sr-only">(current)</span></a>
@@ -62,7 +69,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">FORUM</a>
                     </li>
-                    {%if session%}
+                    <li class="nav-item">
+                        {%if session%}
+                        <a class="nav-link" href="/logout">SIGN OUT</a>
+                        {%else%}
+                        <a class="nav-link" href="/login">LOGIN</a>
+                        {%endif%}
+                    </li>
+                    <!-- {%if session%}
                         <li class="nav-item hidden-item">
                             <a class="nav-link" href="/user">USER INFO</a>
                         </li>
@@ -76,9 +90,9 @@
                         <li class="nav-item hidden-item">
                             <a class="nav-link" href="/sign-up">SIGN UP</a>
                         </li>
-                    {%endif%}
+                    {%endif%} -->
                 </ul>
-                
+
             </div>
         </div>
     </nav>
@@ -94,33 +108,33 @@
                     <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="carousel-item-content" style="background:url('../static/images/slide-1.jpg')">
+                    <div class="carousel-item active">
+                        <div class="carousel-item-content" style="background:url('static/image/slide-1.jpg')">
+                        </div>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Make your own success story</h5>
+                            <a href="" class="btn btn-danger">SIGN UP NOW</a>
+                            <a href="" class="btn btn-danger">EXPLORE MORE</a>
+                        </div>
                     </div>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Make your own success story</h5>
-                        <a href="" class="btn btn-danger">SIGN UP NOW</a>
-                        <a href="" class="btn btn-danger">EXPLORE MORE</a>
+                    <div class="carousel-item">
+                        <div class="carousel-item-content" style="background:url('static/image/slide-2.jpg')">
+                        </div>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Make your own success story</h5>
+                            <a href="" class="btn btn-danger">SIGN UP NOW</a>
+                            <a href="" class="btn btn-danger">EXPLORE MORE</a>
+                        </div>
                     </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="carousel-item-content" style="background:url('../static/images/slide-2.jpg')">
+                    <div class="carousel-item">
+                        <div class="carousel-item-content" style="background:url('static/image/slide-3.jpg')">
+                        </div>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Make your own success story</h5>
+                            <a href="" class="btn btn-danger">SIGN UP NOW</a>
+                            <a href="" class="btn btn-danger">EXPLORE MORE</a>
+                        </div>
                     </div>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Make your own success story</h5>                        
-                        <a href="" class="btn btn-danger">SIGN UP NOW</a>
-                        <a href="" class="btn btn-danger">EXPLORE MORE</a>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="carousel-item-content" style="background:url('../static/images/slide-3.jpg')">
-                    </div>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Make your own success story</h5>
-                        <a href="" class="btn btn-danger">SIGN UP NOW</a>
-                        <a href="" class="btn btn-danger">EXPLORE MORE</a>
-                    </div>
-                </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -141,11 +155,11 @@
             <div class="row">
                 <h2>Beyond traditional test prep</h2>
                 <p class="long-copy">
-                    We believe test prep should be real education. 
-                    And a great teacher makes all the difference. 
-                    Our instructors aren’t just smart test-takers, 
+                    We believe test prep should be real education.
+                    And a great teacher makes all the difference.
+                    Our instructors aren’t just smart test-takers,
                     they’re talented teachers with the experience to help you reach
-                     your highest potential.
+                    your highest potential.
                 </p>
                 <a href="" class="btn btn-danger">SEE HOW WE'RE DIFFERENT</a>
             </div>
@@ -156,40 +170,44 @@
             <div class="row">
                 <div class="col-sm-5 offset-sm-1">
                     <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">IELTS</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="/ielts-section" class="btn btn-danger">Explore</a>
-                    </div>
+                        <div class="card-body">
+                            <h5 class="card-title">IELTS</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                            </p>
+                            <a href="/ielts-section" class="btn btn-danger">Explore</a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-sm-5">
                     <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">TOEFL</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-danger">Explore</a>
-                    </div>
+                        <div class="card-body">
+                            <h5 class="card-title">TOEFL</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                            </p>
+                            <a href="#" class="btn btn-danger">Explore</a>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-5 offset-sm-1">
                     <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">GMAT</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-danger">Explore</a>
-                    </div>
+                        <div class="card-body">
+                            <h5 class="card-title">GMAT</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                            </p>
+                            <a href="#" class="btn btn-danger">Explore</a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-sm-5">
                     <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">RESOURCES</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-danger">Explore</a>
-                    </div>
+                        <div class="card-body">
+                            <h5 class="card-title">RESOURCES</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                            </p>
+                            <a href="#" class="btn btn-danger">Explore</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -204,92 +222,100 @@
             </div>
         </div>
     </section>
-    <section class="section section-review" style="background-image:linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../static/images/review-bg.jpg');">
+    <section class="section section-review"
+        style="background-image:linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('static/image/review-bg.jpg');">
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
-                    <div class="student" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('../static/images/review-1.jpg');">
+                    <div class="student"
+                        style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('static/image/review-1.jpg');">
                         <div class="review-cap">
                             <h5>
                                 Nicole Kidman
                             </h5>
                             <p>Front End Web Developer Apple Store VietNam</p>
-                            
+
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <div class="student" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('../static/images/review-2.jpg');">
+                    <div class="student"
+                        style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('static/image/review-2.jpg');">
                         <div class="review-cap">
                             <h5>
                                 Nicole Kidman
                             </h5>
                             <p>Front End Web Developer Apple Store VietNam</p>
-                            
+
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <div class="student" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('../static/images/review-3.jpg');">
+                    <div class="student"
+                        style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('static/image/review-3.jpg');">
                         <div class="review-cap">
                             <h5>
                                 Nicole Kidman
                             </h5>
                             <p>Front End Web Developer Apple Store VietNam</p>
-                            
+
                         </div>
                     </div>
                 </div>
-                
-                
+
+
             </div>
             <div class="row">
                 <div class="col-sm-3">
-                    <div class="student std-2" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('../static/images/review-4.jpg');">
+                    <div class="student std-2"
+                        style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('static/image/review-4.jpg');">
                         <div class="review-cap">
                             <h5>
                                 Nicole Kidman
                             </h5>
                             <p>Front End Web Developer Apple Store VietNam</p>
-                            
+
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-3">
-                    <div class="student std-2" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('../static/images/review-5.jpg');">
+                    <div class="student std-2"
+                        style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('static/image/review-5.jpg');">
                         <div class="review-cap">
                             <h5>
                                 Nicole Kidman
                             </h5>
                             <p>Front End Web Developer Apple Store VietNam</p>
-                            
+
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-3">
-                    <div class="student std-2" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('../static/images/review-6.jpg');">
+                    <div class="student std-2"
+                        style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('static/image/review-6.jpg');">
                         <div class="review-cap">
                             <h5>
                                 Nicole Kidman
                             </h5>
                             <p>Front End Web Developer Apple Store VietNam</p>
-                            
+
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-3">
-                    <div class="student std-2" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('../static/images/review-7.jpg');">
+                    <div class="student std-2"
+                        style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('static/image/review-7.jpg');">
                         <div class="review-cap">
                             <h5>
                                 Nicole Kidman
                             </h5>
                             <p>Front End Web Developer Apple Store VietNam</p>
-                            
+
                         </div>
                     </div>
                 </div>
-                                
-                
+
+
             </div>
         </div>
     </section>
@@ -300,13 +326,13 @@
             <div class="row">
                 <h2>Crazy-smart &mdash; crazy-good teachers.</h2>
                 <p class="long-copy">
-                        Yep, all of our instructors have top-1% scores. 
-                        But that’s only just the beginning. 
-                        We don’t just hire test-taking whizzes. 
-                        We hire experienced teachers and exceptional humans 
-                        that will empower and inspire you.
+                    Yep, all of our instructors have top-1% scores.
+                    But that’s only just the beginning.
+                    We don’t just hire test-taking whizzes.
+                    We hire experienced teachers and exceptional humans
+                    that will empower and inspire you.
                 </p>
-                <img src="../static/images/teachers.png" alt="">
+                <img src="static/image/teachers.png" alt="">
             </div>
         </div>
     </section>
@@ -337,21 +363,21 @@
                         </li>
                     </ul>
                 </div>
-                
+
                 <div class="col-sm-3 offset-sm-3">
                     <h6>Call us</h6>
                     <ul>
                         <li>
                             <a href="#">(+84) 999-999999</a>
                         </li>
-                        
+
                     </ul>
                     <h6>Email us</h6>
                     <ul>
                         <li>
                             <a href="#">sexy&commat;support.edu.vn</a>
                         </li>
-                        
+
                     </ul>
                 </div>
             </div>
@@ -372,9 +398,16 @@
         </div>
     </section>
     <!-- --- SUB-FOOTER --- -->
-    <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>    
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

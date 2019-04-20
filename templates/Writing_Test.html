@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='Writing_Test.css')}}">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='Writing_Test.css')}}">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
 </head>
 
@@ -14,69 +16,75 @@
 
 <body>
 
-<div class="interface">
+  <div class="interface">
 
-  <div id="header">
-    <div> <button>USER NAME </button></div>
-    <div id="clock_area">
-      <div> <i class="fas fa-clock"></i> </div>
-      <div> <p id="clockdiv"></p> </div>
+    <div id="header">
+      <div> <button>{{session.username}}</button></div>
+      <div id="clock_area">
+        <div> <i class="fas fa-clock"></i> </div>
+        <div>
+          <p id="clockdiv"></p>
+        </div>
+      </div>
+      <div> <button> SETIING </button> </div>
+
     </div>
-    <div> <button> SETIING </button> </div>
-    
-    </div>
 
 
-<!-- Script for Coundown Timer -->
-<Script> 
+    <!-- Script for Coundown Timer -->
+    <Script>
 
-        // 60 minutes from now
-        var time_in_minutes = 60;
-        var current_time = Date.parse(new Date());
-        var deadline = new Date(current_time + time_in_minutes*60*1000);
-        
-        
-        function time_remaining(endtime) {
-          var t = Date.parse(endtime) - Date.parse(new Date());
-          var minutes = Math.floor( (t/1000/60) );
-          var seconds = Math.floor( (t/1000) % 60 );
-          return {'total':t, 'minutes':minutes, 'seconds':seconds};
+      // 60 minutes from now
+      var time_in_minutes = 60;
+      var current_time = Date.parse(new Date());
+      var deadline = new Date(current_time + time_in_minutes * 60 * 1000);
+
+
+      function time_remaining(endtime) {
+        var t = Date.parse(endtime) - Date.parse(new Date());
+        var minutes = Math.floor((t / 1000 / 60));
+        var seconds = Math.floor((t / 1000) % 60);
+        return { 'total': t, 'minutes': minutes, 'seconds': seconds };
+      }
+
+      function run_clock(id, endtime) {
+        var clock = document.getElementById(id);
+        function update_clock() {
+          var t = time_remaining(endtime);
+          var display = t.minutes
+          clock.innerHTML = 'TIME LEFT ' + display + ':' + t.seconds;
+          if (t.total <= 0) { clearInterval(timeinterval); window.location.replace("http://127.0.0.1:5000/ielts/cambridge/result") }
         }
+        update_clock(); // run function once at first to avoid delay
+        var timeinterval = setInterval(update_clock, 1000);
+      }
+      run_clock("clockdiv", deadline);
 
-        function run_clock(id,endtime){
-          var clock = document.getElementById(id);
-          function update_clock(){
-            var t = time_remaining(endtime);
-            var display = t.minutes
-            clock.innerHTML = 'TIME LEFT '+ display + ':' + t.seconds ;
-            if(t.total<=0){ clearInterval(timeinterval); window.location.replace("http://127.0.0.1:5000/ielts/cambridge/result") }
-          }
-          update_clock(); // run function once at first to avoid delay
-          var timeinterval = setInterval(update_clock,1000);
-        }
-        run_clock("clockdiv",deadline);
-        
-</script>
+    </script>
 
-<form id="reading_form" method = "POST" >
+    <form id="reading_form" method="POST">
 
-  <div class="Task_Content" id="Task_1">
+      <div class="Task_Content" id="Task_1">
 
 
-    <div id="test_intro">
-      <div id="task_header"> <h4>{{ Test_Content.Header_Task_1 }}</h4></div>
-      <div id="task_intro"> <p> {{ Test_Content.Intro_1 }} </p></div>
+        <div id="test_intro">
+          <div id="task_header">
+            <h4>{{ Test_Content.Header_Task_1 }}</h4>
+          </div>
+          <div id="task_intro">
+            <p> {{ Test_Content.Intro_1 }} </p>
+          </div>
 
-    </div>
+        </div>
 
-    <div class="test_area">
+        <div class="test_area">
           <div class="task_area">
             <div style="border:2px solid black; padding: 5px">
               {{ Test_Content.Task_1_Question}}
             </div>
 
             <div id="photo_area">
-             <img id="photo" src="/static/image/IC13-T1-W1.jpg" alt="hihi">
+              <img id="photo" src="/static/image/IC13-T1-W1.jpg" alt="hihi">
             </div>
 
             <div>
@@ -85,33 +93,37 @@
           </div>
 
           <div class="answer_area">
-              <Textarea name="content" name="IC13_T1_W_1" id="text1" placeholder="type here"> </Textarea>
-              <div> Words: <span id="wordCount1">0</span> </div>
+            <Textarea name="IC13_T1_W_1" id="text1" placeholder="type here"> </Textarea>
+            <div class="word"> Words: <span id="wordCount1">0</span> </div>
           </div>
+
+        </div>
 
       </div>
 
-  </div>  
-
-  <div class="Task_Content" id="Task_2">
+      <div class="Task_Content" id="Task_2">
 
 
-    <div id="test_intro">
-      <div id="task_header"> <h4>{{ Test_Content.Header_Task_2 }}</h4></div>
-      <div id="task_intro"> <p> {{ Test_Content.Intro_2 }} </p></div>
+        <div id="test_intro">
+          <div id="task_header">
+            <h4>{{ Test_Content.Header_Task_2 }}</h4>
+          </div>
+          <div id="task_intro">
+            <p> {{ Test_Content.Intro_2 }} </p>
+          </div>
 
-    </div>
+        </div>
 
-    <div class="test_area">
+        <div class="test_area">
           <div class="task_area">
-              <div style="border:2px solid black; padding: 5px">
-                 <pre> {{ Test_Content.Task_2_Question}} </pre>
-                </div>
-        
-                <div>
-                  <i> {{ Test_Content.Task_2_Warning }} </i>
-                </div>
-            
+            <div style="border:2px solid black; padding: 5px">
+              <pre> {{ Test_Content.Task_2_Question}} </pre>
+            </div>
+
+            <div>
+              <i> {{ Test_Content.Task_2_Warning }} </i>
+            </div>
+
           </div>
 
           <div class="answer_area">
@@ -120,121 +132,122 @@
             <div> Words: <span id="wordCount2">0</span> </div>
           </div>
 
+        </div>
+
       </div>
 
-  </div>  
+      <Script>
 
-  <Script>
-  
-  counter1 = function() {
-    var value = $('#text1').val();
+        counter1 = function () {
+          var value = $('#text1').val();
 
-    if (value.length == 0) {
-      $('#wordCount1').html(0);
-      return;
+          if (value.length == 0) {
+            $('#wordCount1').html(0);
+            return;
+          }
+          var regex = /\s+/gi;
+          var wordCount1 = value.trim().replace(regex, ' ').split(' ').length;
+          $('#wordCount1').html(wordCount1);
+        };
+
+        $(document).ready(function () {
+          $('#count').click(counter1);
+          $('#text1').change(counter1);
+          $('#text1').keydown(counter1);
+          $('#text1').keypress(counter1);
+          $('#text1').keyup(counter1);
+          $('#text1').blur(counter1);
+          $('#text1').focus(counter1);
+        });
+
+
+        counter2 = function () {
+          var value = $('#text2').val();
+
+          if (value.length == 0) {
+            $('#wordCount2').html(0);
+            return;
+          }
+          var regex = /\s+/gi;
+          var wordCount2 = value.trim().replace(regex, ' ').split(' ').length;
+          $('#wordCount2').html(wordCount2);
+        };
+
+        $(document).ready(function () {
+          $('#text2').change(counter2);
+          $('#text2').keydown(counter2);
+          $('#text2').keypress(counter2);
+          $('#text2').keyup(counter2);
+          $('#text2').blur(counter2);
+          $('#text2').focus(counter2);
+        });
+
+
+      </Script>
+
+    </form>
+
+    <div id="navigate_tab">
+      <div id="task_tab">
+        <button class="tablink" onclick="openTask('Task_1', this)" id="defaultOpen">TASK 1</button>
+        <button class="tablink" onclick="openTask('Task_2', this)">TASK 2</button>
+      </div>
+      <div id="end_tab">
+
+        <button id="end_button" onclick="submitFunction()">END SECTION</button>
+        <script>
+          function submitFunction() {
+            if (confirm("Do you want to end the test?")) { document.getElementById('reading_form').submit() }
+          }
+        </script>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Script for collapsible -->
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
     }
-    var regex = /\s+/gi;
-    var wordCount1 = value.trim().replace(regex, ' ').split(' ').length;
-    $('#wordCount1').html(wordCount1);
-};
-
-$(document).ready(function() {
-  $('#count').click(counter1);
-  $('#text1').change(counter1);
-  $('#text1').keydown(counter1);
-  $('#text1').keypress(counter1);
-  $('#text1').keyup(counter1);
-  $('#text1').blur(counter1);
-  $('#text1').focus(counter1);
-});
-  
-
-counter2 = function() {
-    var value = $('#text2').val();
-
-    if (value.length == 0) {
-      $('#wordCount2').html(0);
-      return;
-    }
-    var regex = /\s+/gi;
-    var wordCount2 = value.trim().replace(regex, ' ').split(' ').length;
-    $('#wordCount2').html(wordCount2);
-};
-
-$(document).ready(function() {
-  $('#text2').change(counter2);
-  $('#text2').keydown(counter2);
-  $('#text2').keypress(counter2);
-  $('#text2').keyup(counter2);
-  $('#text2').blur(counter2);
-  $('#text2').focus(counter2);
-});
-  
-  
-  </Script>
-    
-</form>
-
-<div id="navigate_tab">
-  <div id="task_tab">
-    <button class="tablink" onclick="openTask('Task_1', this)" id="defaultOpen">TASK 1</button>
-    <button class="tablink" onclick="openTask('Task_2', this)">TASK 2</button>
-  </div>
-  <div id="end_tab">
-
-    <button id="end_button" onclick="submitFunction()">END SECTION</button>
-    <script>
-      function submitFunction() {
-        if (confirm("Do you want to end the test?")) {document.getElementById('reading_form').submit() }
-      }
-    </script>
-
-  </div>
-
-  </div>
-</div>
-
-<!-- Script for collapsible -->
-<script>
-  var coll = document.getElementsByClassName("collapsible");
-  var i;
-
-  for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-      var content = this.nextElementSibling;
-      if (content.style.display === "block") {
-        content.style.display = "none";
-      } else {
-        content.style.display = "block";
-      }
-    });
-  }
   </script>
- 
-<script>
 
-//Script for passage fractions
-function openTask(Task_ID,elmnt) {
-  var i, task_content;
-  task_content = document.getElementsByClassName("Task_Content");
-  for (i = 0; i < task_content.length; i++) {
-    task_content[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].style.backgroundColor = "";
-  }
-  document.getElementById(Task_ID).style.display = "block";
-  elmnt.style.backgroundColor = color;
+  <script>
 
-}
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-</script>
+    //Script for passage fractions
+    function openTask(Task_ID, elmnt) {
+      var i, task_content;
+      task_content = document.getElementsByClassName("Task_Content");
+      for (i = 0; i < task_content.length; i++) {
+        task_content[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+      }
+      document.getElementById(Task_ID).style.display = "block";
+      elmnt.style.backgroundColor = color;
+
+    }
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+  </script>
 
 
   </div>
 
 </body>
+
 </html>

@@ -14,7 +14,7 @@
 <body>
     <div class="interface">
         <div id="header">
-            <div><button>USER NAME</button></div>
+            <div><button>{{session.username}}</button></div>
             <div id="clock_area">
                 <div><i class="fas fa-clock"></i></div>
                 <div><p id="clockdiv"></p></div>
@@ -32,7 +32,7 @@
                     <h3>Question 1-10</h3>
                     <p><i>Complete the notes below.</i></p>
                     <p><i>Write <strong>ONE WORD AND/OR A NUMBER </strong>for each answer.</i></p>
-                    <audio src="/static/audio/Cam-Giac-Luc-Ay-Se-Ra-Sao-Lou-Hoang.mp3" controls></audio>
+                    <audio src="/static/audio/IELTS13-Tests1-4CD1Track_01.mp3" controls></audio>
                     
                         <table>
                             <tr>
@@ -86,74 +86,95 @@
                 <div class="answer_area">
                     <h3>Question 11-20</h3>
                     <p><i>Choose the correct letter, <strong>A</strong>, <strong>B </strong>or <strong>C</strong>.</i></p>
-                    <audio src="/static/audio/Cam-Giac-Luc-Ay-Se-Ra-Sao-Lou-Hoang.mp3" controls></audio>
+                    <audio src="/static/audio/IELTS13-Tests1-4CD1Track_02.mp3" controls></audio>
                     <form action="" method="post">
                         <h3 class="h3_section">Information on company volunteering projects</h3>
                         <button type="button" class="collapsible"><strong>11. </strong> How much time for volunteering does the company allow per employee?</button>
                         <div class="content">
-                            <p><input type="radio" name="IC13_T1_L_11" value="a"><strong> A. </strong>two hours per week</p>
-                            <p><input type="radio" name="IC13_T1_L_11" value="b"><strong> B. </strong>one day per month</p>
-                            <p><input type="radio" name="IC13_T1_L_11" value="c"><strong> C. </strong>8 hours per year</p>
+                            <p><input type="radio" name="IC13_T1_L_11" value="A"><strong> A. </strong>two hours per week</p>
+                            <p><input type="radio" name="IC13_T1_L_11" value="B"><strong> B. </strong>one day per month</p>
+                            <p><input type="radio" name="IC13_T1_L_11" value="C"><strong> C. </strong>8 hours per year</p>
                         </div>
 
                         <button type="button" class="collapsible"><strong>12. </strong> In feedback almost all employees said that volunteering improved their</button>
                         <div class="content">
-                            <p><input type="radio" name="IC13_T1_L_12" value="a"><strong> A. </strong>chances of promotion.</p>
-                            <p><input type="radio" name="IC13_T1_L_12" value="b"><strong> B. </strong>job satisfaction.</p>
-                            <p><input type="radio" name="IC13_T1_L_12" value="c"><strong> C. </strong>relationships with colleagues.</p>
+                            <p><input type="radio" name="IC13_T1_L_12" value="A"><strong> A. </strong>chances of promotion.</p>
+                            <p><input type="radio" name="IC13_T1_L_12" value="B"><strong> B. </strong>job satisfaction.</p>
+                            <p><input type="radio" name="IC13_T1_L_12" value="C"><strong> C. </strong>relationships with colleagues.</p>
                         </div>
 
                         <button type="button" class="collapsible"><strong>13. </strong> Last year some staff helped unemployed people with their</button>
                         <div class="content">
-                            <p><input type="radio" name="IC13_T1_L_13" value="a"><strong> A. </strong>literacy skills.</p>
-                            <p><input type="radio" name="IC13_T1_L_13" value="b"><strong> B. </strong>job applications.</p>
-                            <p><input type="radio" name="IC13_T1_L_13" value="c"><strong> C. </strong>communication skills.</p>
+                            <p><input type="radio" name="IC13_T1_L_13" value="A"><strong> A. </strong>literacy skills.</p>
+                            <p><input type="radio" name="IC13_T1_L_13" value="B"><strong> B. </strong>job applications.</p>
+                            <p><input type="radio" name="IC13_T1_L_13" value="C"><strong> C. </strong>communication skills.</p>
                         </div>
 
                         <button type="button" class="collapsible"><strong>14. </strong> This year the company will start a new volunteering project with a local</button>
                         <div class="content">
-                            <p><input type="radio" name="IC13_T1_L_14" value="a"><strong> A. </strong>school.</p>
-                            <p><input type="radio" name="IC13_T1_L_14" value="b"><strong> B. </strong>park.</p>
-                            <p><input type="radio" name="IC13_T1_L_14" value="c"><strong> C. </strong>charity.</p>
+                            <p><input type="radio" name="IC13_T1_L_14" value="A"><strong> A. </strong>school.</p>
+                            <p><input type="radio" name="IC13_T1_L_14" value="B"><strong> B. </strong>park.</p>
+                            <p><input type="radio" name="IC13_T1_L_14" value="C"><strong> C. </strong>charity.</p>
                         </div>
 
                         <button type="button" class="collapsible"><strong>15. </strong> Where will the Digital Inclusion Day be held</button>
                         <div class="content">
-                            <p><input type="radio" name="IC13_T1_L_15" value="a"><strong> A. </strong>at the company's training facility</p>
-                            <p><input type="radio" name="IC13_T1_L_15" value="b"><strong> B. </strong>at a college</p>
-                            <p><input type="radio" name="IC13_T1_L_15" value="c"><strong> C. </strong>in a community centre</p>
+                            <p><input type="radio" name="IC13_T1_L_15" value="A"><strong> A. </strong>at the company's training facility</p>
+                            <p><input type="radio" name="IC13_T1_L_15" value="B"><strong> B. </strong>at a college</p>
+                            <p><input type="radio" name="IC13_T1_L_15" value="C"><strong> C. </strong>in a community centre</p>
                         </div>
 
                         <button type="button" class="collapsible"><strong>16. </strong> What should staff do if they want to take part in the Digital Inclusion Day?</button>
                         <div class="content">
-                            <p><input type="radio" name="IC13_T1_L_16" value="a"><strong> A. </strong>fill in a form</p>
-                            <p><input type="radio" name="IC13_T1_L_16" value="b"><strong> B. </strong>attend a training workshop</p>
-                            <p><input type="radio" name="IC13_T1_L_16" value="c"><strong> C. </strong>get permission from their manager</p>
+                            <p><input type="radio" name="IC13_T1_L_16" value="A"><strong> A. </strong>fill in a form</p>
+                            <p><input type="radio" name="IC13_T1_L_16" value="B"><strong> B. </strong>attend a training workshop</p>
+                            <p><input type="radio" name="IC13_T1_L_16" value="C"><strong> C. </strong>get permission from their manager</p>
                         </div>
 
                         <h3>Questions 17 and 18</h3>
+                        <p>What <b>TWO</b> things are mentioned about the participants on the last Digital Inclusion Day? </p>
                         <p>Choose <strong>TWO</strong> letters, <strong>A-E</strong>.</p>
 
-                        <button type="button" class="collapsible">What <strong>TWO </strong>things are mentioned about the participants on the last Digital Inclusion Day?</button>
+                        <button type="button" class="collapsible">17. </button>
                         <div class="content">
-                            <p><input type="radio" name="IC13_T1_L_17_18" value="a"><strong> A. </strong>They were all over 70.</p>
-                            <p><input type="radio" name="IC13_T1_L_17_18" value="b"><strong> B. </strong>They never used their computer.</p>
-                            <p><input type="radio" name="IC13_T1_L_17_18" value="c"><strong> C. </strong>Their phones were mostly old-fashioned.</p>
-                            <p><input type="radio" name="IC13_T1_L_17_18" value="d"><strong> D. </strong>They only used their phones for making calls.</p>
-                            <p><input type="radio" name="IC13_T1_L_17_18" value="e"><strong> E. </strong>They initially showed little interest.</p>
+                            <p><input type="radio" name="IC13_T1_L_17" value="A"><strong> A. </strong>They were all over 70.</p>
+                            <p><input type="radio" name="IC13_T1_L_17" value="B"><strong> B. </strong>They never used their computer.</p>
+                            <p><input type="radio" name="IC13_T1_L_17" value="C"><strong> C. </strong>Their phones were mostly old-fashioned.</p>
+                            <p><input type="radio" name="IC13_T1_L_17" value="D"><strong> D. </strong>They only used their phones for making calls.</p>
+                            <p><input type="radio" name="IC13_T1_L_17" value="E"><strong> E. </strong>They initially showed little interest.</p>
+                        </div>
+
+                        <button type="button" class="collapsible">18. </button>
+                        <div class="content">
+                            <p><input type="radio" name="IC13_T1_L_18" value="A"><strong> A. </strong>They were all over 70.</p>
+                            <p><input type="radio" name="IC13_T1_L_18" value="B"><strong> B. </strong>They never used their computer.</p>
+                            <p><input type="radio" name="IC13_T1_L_18" value="C"><strong> C. </strong>Their phones were mostly old-fashioned.</p>
+                            <p><input type="radio" name="IC13_T1_L_18" value="D"><strong> D. </strong>They only used their phones for making calls.</p>
+                            <p><input type="radio" name="IC13_T1_L_18" value="E"><strong> E. </strong>They initially showed little interest.</p>
                         </div>
 
                         <h3>Questions 19 and 20</h3>
                         <p>Choose <strong>TWO</strong> letters, <strong>A-E</strong>.</p>
+                        <p> What TWO activities on the last Digital Inclusion Day did participants describle as useful? </p> 
 
-                        <button type="button" class="collapsible">What <strong>TWO </strong>activities on the last Digital Inclusion Day did participants describle as useful?</button>
+                        <button type="button" class="collapsible"> 19.</button>
                         <div class="content">
-                            <p><input type="radio" name="IC13_T1_L_19_20" value="a"><strong> A. </strong>learning to use tablets</p>
-                            <p><input type="radio" name="IC13_T1_L_19_20" value="b"><strong> B. </strong>communicating with family</p>
-                            <p><input type="radio" name="IC13_T1_L_19_20" value="c"><strong> C. </strong>shopping online</p>
-                            <p><input type="radio" name="IC13_T1_L_19_20" value="d"><strong> D. </strong>playing online games</p>
-                            <p><input type="radio" name="IC13_T1_L_19_20" value="e"><strong> E. </strong>sending emails</p>
+                            <p><input type="radio" name="IC13_T1_L_19" value="A"><strong> A. </strong>learning to use tablets</p>
+                            <p><input type="radio" name="IC13_T1_L_19" value="B"><strong> B. </strong>communicating with family</p>
+                            <p><input type="radio" name="IC13_T1_L_19" value="C"><strong> C. </strong>shopping online</p>
+                            <p><input type="radio" name="IC13_T1_L_19" value="D"><strong> D. </strong>playing online games</p>
+                            <p><input type="radio" name="IC13_T1_L_19" value="E"><strong> E. </strong>sending emails</p>
                         </div>
+
+                        <button type="button" class="collapsible"> 20.</button>
+                        <div class="content">
+                            <p><input type="radio" name="IC13_T1_L_20" value="A"><strong> A. </strong>learning to use tablets</p>
+                            <p><input type="radio" name="IC13_T1_L_20" value="B"><strong> B. </strong>communicating with family</p>
+                            <p><input type="radio" name="IC13_T1_L_20" value="C"><strong> C. </strong>shopping online</p>
+                            <p><input type="radio" name="IC13_T1_L_20" value="D"><strong> D. </strong>playing online games</p>
+                            <p><input type="radio" name="IC13_T1_L_20" value="E"><strong> E. </strong>sending emails</p>
+                        </div>
+
                     </form>
                 </div>
             </div>
@@ -166,42 +187,42 @@
                 <div class="answer_area">
                     <h3>Questions 21-25</h3>
                     <p><i>Choose the correct letter, <strong>A</strong>, <strong>B </strong>or <strong>C</strong>.</i></p>
-                    <audio src="/static/audio/Cam-Giac-Luc-Ay-Se-Ra-Sao-Lou-Hoang.mp3" controls></audio>
+                    <audio src="/static/audio/IELTS13-Tests1-4CD1Track_03.mp3" controls></audio>
                     <h3 class="h3_section">Planning a presentation on nanotechnology</h3>
                     <form action="" method="POST">
                         <button type="button" class="collapsible"><strong>21. </strong> Russ says that his difficulty in planning the presentation is due to</button>
                         <div class="content">
-                            <p><input type="radio" name="IC13_T1_L_21" value="a"><strong> A. </strong>his lack of knowledge about the topic.</p>
-                            <p><input type="radio" name="IC13_T1_L_21" value="b"><strong> B. </strong>his uncertainty about what he should try to achieve.</p>
-                            <p><input type="radio" name="IC13_T1_L_21" value="c"><strong> C. </strong>the short time that he has for preparation.</p>
+                            <p><input type="radio" name="IC13_T1_L_21" value="A"><strong> A. </strong>his lack of knowledge about the topic.</p>
+                            <p><input type="radio" name="IC13_T1_L_21" value="B"><strong> B. </strong>his uncertainty about what he should try to achieve.</p>
+                            <p><input type="radio" name="IC13_T1_L_21" value="C"><strong> C. </strong>the short time that he has for preparation.</p>
                         </div>
 
                         <button type="button" class="collapsible"><strong>22. </strong> Russ and his tutor agree that his approach in the presentation will be</button>
                         <div class="content">
-                            <p><input type="radio" name="IC13_T1_L_22" value="a"><strong> A. </strong>to concentrate on how nanotechnology is used in one field.</p>
-                            <p><input type="radio" name="IC13_T1_L_22" value="b"><strong> B. </strong>to follow the chronological development of nanotechnology.</p>
-                            <p><input type="radio" name="IC13_T1_L_22" value="c"><strong> C. </strong>to show the range of applications of nanotechnology.</p>
+                            <p><input type="radio" name="IC13_T1_L_22" value="A"><strong> A. </strong>to concentrate on how nanotechnology is used in one field.</p>
+                            <p><input type="radio" name="IC13_T1_L_22" value="B"><strong> B. </strong>to follow the chronological development of nanotechnology.</p>
+                            <p><input type="radio" name="IC13_T1_L_22" value="C"><strong> C. </strong>to show the range of applications of nanotechnology.</p>
                         </div>
 
                         <button type="button" class="collapsible"><strong>23. </strong> In connection with slides, the tutor advises Russ to</button>
                         <div class="content">
-                            <p><input type="radio" name="IC13_T1_L_23" value="a"><strong> A. </strong>talk about things that he can find slides to illustrate.</p>
-                            <p><input type="radio" name="IC13_T1_L_23" value="b"><strong> B. </strong>look for slides to illustrate the points he makes.</p>
-                            <p><input type="radio" name="IC13_T1_L_23" value="c"><strong> C. </strong>consider omitting slides altogether.</p>
+                            <p><input type="radio" name="IC13_T1_L_23" value="A"><strong> A. </strong>talk about things that he can find slides to illustrate.</p>
+                            <p><input type="radio" name="IC13_T1_L_23" value="B"><strong> B. </strong>look for slides to illustrate the points he makes.</p>
+                            <p><input type="radio" name="IC13_T1_L_23" value="C"><strong> C. </strong>consider omitting slides altogether.</p>
                         </div>
 
                         <button type="button" class="collapsible"><strong>24. </strong> They both agree that the best way for Russ to start his presentation is</button>
                         <div class="content">
-                            <p><input type="radio" name="IC13_T1_L_24" value="a"><strong> A. </strong>to encourage the audience to talk.</p>
-                            <p><input type="radio" name="IC13_T1_L_24" value="b"><strong> B. </strong>to explain what Russ intends to do.</p>
-                            <p><input type="radio" name="IC13_T1_L_24" value="c"><strong> C. </strong>to provide an example.</p>
+                            <p><input type="radio" name="IC13_T1_L_24" value="A"><strong> A. </strong>to encourage the audience to talk.</p>
+                            <p><input type="radio" name="IC13_T1_L_24" value="B"><strong> B. </strong>to explain what Russ intends to do.</p>
+                            <p><input type="radio" name="IC13_T1_L_24" value="C"><strong> C. </strong>to provide an example.</p>
                         </div>
 
                         <button type="button" class="collapsible"><strong>25. </strong> What does the tutor advises Russ to do next while prepareing his presentation?</button>
                         <div class="content">
-                            <p><input type="radio" name="IC13_T1_L_25" value="a"><strong> A. </strong>summarise the main point he wants to make</p>
-                            <p><input type="radio" name="IC13_T1_L_25" value="b"><strong> B. </strong>read the notes he has already made</p>
-                            <p><input type="radio" name="IC13_T1_L_25" value="c"><strong> C. </strong>list the topics he wants to cover</p>
+                            <p><input type="radio" name="IC13_T1_L_25" value="A"><strong> A. </strong>summarise the main point he wants to make</p>
+                            <p><input type="radio" name="IC13_T1_L_25" value="B"><strong> B. </strong>read the notes he has already made</p>
+                            <p><input type="radio" name="IC13_T1_L_25" value="C"><strong> C. </strong>list the topics he wants to cover</p>
                         </div>
 
                         <h3>Questions 26-30</h3>
@@ -241,7 +262,7 @@
                     <h3>Questions 31-40</h3>
                     <p><i>Complete the notes below.</i></p>
                     <p><i>Write </i><strong>ONE WORD ONLY </strong>for each answer.</p>
-                    <audio src="/static/audio/Cam-Giac-Luc-Ay-Se-Ra-Sao-Lou-Hoang.mp3" controls></audio>
+                    <audio src="/static/audio/IELTS13-Tests1-4CD1Track_04.mp3" controls></audio>
                     <form action="" method="POST">
                         <div class="table_section4">
                             <ul><strong>Episodic memory</strong></ul>

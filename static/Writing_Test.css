@@ -231,13 +231,15 @@ background-color: rgb(110, 55, 55);
 }
 
 @media (max-width: 768px) { 
-.test_area{
-    flex-direction: column;
-}
-.para_area{
-    width: 100%;
-}
-.answer_area{
-    width: 100%;
-}
-}
+    .test_area{
+      flex-direction: column;
+    }
+    .task_area{
+      width: 100%;
+      padding: 0;
+    }
+    .answer_area{
+      width: 100%;
+      padding: 0;
+    }
+  }
