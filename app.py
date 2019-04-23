@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 from flask import *
 from bson.objectid import ObjectId
-from users import users
+from model.users import users
 app = Flask(__name__)
 
 
