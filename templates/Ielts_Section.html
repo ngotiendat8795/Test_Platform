@@ -18,6 +18,7 @@
 
 
 </head>
+
 <body>
     <!-- --- LOGIN/SIGN UP --- -->
     {#<section class="section-login">
@@ -47,7 +48,8 @@
     <!-- --- NAV BAR --- -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <i style="color:white;" class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
@@ -70,15 +72,12 @@
                     </li>
                     <li class="nav-item">
                         {%if session%}
-                            <a class="nav-link" href="/logout">SIGN OUT</a>
+                        <a class="nav-link" href="/logout">SIGN OUT</a>
                         {%else%}
-                            <a class="nav-link" href="/login">LOGIN</a>
+                        <a class="nav-link" href="/login">LOGIN</a>
                         {%endif%}
                     </li>
-                    {%if session%}
-                        <li class="nav-item hidden-item">
-                            <a class="nav-link" href="/user">USER INFO</a>
-                        </li>
+                    <!-- {%if session%}
                         <li class="nav-item hidden-item">
                             <a class="nav-link" href="/logout">LOGOUT</a>
                         </li>
@@ -89,9 +88,9 @@
                         <li class="nav-item hidden-item">
                             <a class="nav-link" href="/sign-up">SIGN UP</a>
                         </li>
-                    {%endif%}
+                    {%endif%} -->
                 </ul>
-                
+
             </div>
         </div>
     </nav>
@@ -105,10 +104,11 @@
                     <div class="carousel-item active">
                         <div class="carousel-item-content" style="background:url('../static/images/slide-1.jpg')">
                         </div>
-                        <div class="carousel-caption d-none d-md-block">                            
+                        <div class="carousel-caption d-none d-md-block">
                             <a href="" class="btn btn-danger">IELTS SECTION</a>
                             <h5>Helping students achieve their best</h5>
-                            <P>We empower students to accomplish their goals by providing an outstanding curriculum and the highest-quality instructors in the industry.</P>
+                            <P>We empower students to accomplish their goals by providing an outstanding curriculum and
+                                the highest-quality instructors in the industry.</P>
                         </div>
                     </div>
                 </div>
@@ -121,7 +121,8 @@
             <div class="row">
                 <h2>IELTS Cambridge &mdash; all tests</h2>
                 <p class="long-copy">
-                        From our instructors to our curriculum, we work to teach you the skills you’ll need to succeed on the test, in school, and beyond.
+                    From our instructors to our curriculum, we work to teach you the skills you’ll need to succeed on
+                    the test, in school, and beyond.
                 </p>
             </div>
         </div>
@@ -155,7 +156,8 @@
                                         aria-labelledby="heading-1-1">
                                         <div class="card-body">
                                             <ul>
-                                                <li><a href="/ielts/ielts-cambridge13/listening-test1">Listening</a></li>
+                                                <li><a href="/ielts/ielts-cambridge13/listening-test1">Listening</a>
+                                                </li>
                                                 <li><a href="/ielts/ielts-cambridge13/reading-test1">Reading</a></li>
                                                 <li><a href="/ielts/ielts-cambridge13/writing-test1">Writing</a></li>
                                             </ul>

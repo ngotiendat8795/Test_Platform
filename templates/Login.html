@@ -45,7 +45,7 @@
                 <a class="navbar-brand" href="/"><img src="static/image/logo-2.png" alt=""></a>
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">IELTS <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/ielts-section">IELTS <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">TOEFL</a>
@@ -61,9 +61,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/login">LOGIN</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/sign-up">SIGN UP</a>
                     </li>
                 </ul>
 
@@ -110,22 +107,25 @@
                     <div class="card" style="height:500px;">
                         <article class="card-body">
                             <a href="/sign-up" class="float-right btn btn-danger">Sign up</a>
-                            <h4 class="card-title mb-4 mt-1">Sign in</h4> 
+                            <h4 class="card-title mb-4 mt-1">Sign in</h4>
                             <form method="POST">
                                 <div class="form-group">
                                     <label>Your email/username</label>
                                     {%if wrong_username%}
-                                        <input name="username" class="form-control wrong" placeholder="{{wrong_username}}" type="text">
+                                    <input name="username" class="form-control wrong" placeholder="{{wrong_username}}"
+                                        type="text">
                                     {%else%}
-                                        <input name="username" class="form-control" placeholder="Email or username" type="text">
+                                    <input name="username" class="form-control" placeholder="Email or username"
+                                        type="text">
                                     {%endif%}
                                 </div> <!-- form-group// -->
                                 <div class="form-group">
                                     <label>Your password</label>
                                     {%if wrong_password%}
-                                        <input name="password" class="form-control wrong" placeholder="{{wrong_password}}" type="password">
+                                    <input name="password" class="form-control wrong" placeholder="{{wrong_password}}"
+                                        type="password">
                                     {%else%}
-                                        <input name="password" class="form-control" placeholder="******" type="password">
+                                    <input name="password" class="form-control" placeholder="******" type="password">
                                     {%endif%}
                                 </div> <!-- form-group// -->
                                 <div class="form-group">

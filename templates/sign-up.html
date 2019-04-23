@@ -62,9 +62,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/login">LOGIN</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/sign-up">SIGN UP</a>
-                    </li>
                 </ul>
 
             </div>
@@ -109,7 +106,7 @@
                 <div class="col-md-6 offset-md-3">
                     <div class="card" style="height:500px;">
                         <article class="card-body">
-                            <h4 class="card-title mb-4 mt-1" style="text-align:center;">Sign up</h4> 
+                            <h4 class="card-title mb-4 mt-1" style="text-align:center;">Sign up</h4>
                             <form method="POST">
                                 <div class="form-group">
                                     <label>Your full name</label>
@@ -118,16 +115,18 @@
                                 <div class="form-group">
                                     <label>Your email/username</label>
                                     {%if display_error == "This username has been used"%}
-                                        <input name="username" class="form-control wrong" placeholder="This username has been used" type="text">
+                                    <input name="username" class="form-control wrong"
+                                        placeholder="This username has been used" type="text">
                                     {%else%}
-                                        <input name="username" class="form-control" placeholder="Email or Username" type="text">
+                                    <input name="username" class="form-control" placeholder="Email or Username"
+                                        type="text">
                                     {%endif%}
-                                    
+
                                 </div> <!-- form-group// -->
                                 <div class="form-group">
                                     <label>Your password</label>
                                     <input name="password" class="form-control" placeholder="******" type="password">
-                                </div> <!-- form-group// -->                                
+                                </div> <!-- form-group// -->
                                 <div class="form-group">
                                     <button class="btn btn-primary btn-block btn-danger"> Create Account </button>
                                 </div> <!-- form-group// -->

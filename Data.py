@@ -28,8 +28,8 @@ for sheet_name in sheet_names:
     # print(Header)
     for i in range(sheet_data.nrows-1):
         data_row = sheet_data.row_values(i+1)
-        record = dict(zip(Header,data_row))
+        record = dict(zip(Header, data_row))
         Passage_ID = sheet_data.cell_value(i+1, 0)
-        exist_testing = collection_on_mongo.find_one({Header[0]:data_row[0]})
+        exist_testing = collection_on_mongo.find_one({Header[0]: data_row[0]})
         if exist_testing == None:
-          collection_on_mongo.insert_one(record)
+            collection_on_mongo.insert_one(record)
