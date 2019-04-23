@@ -1,1 +1,1 @@
-web: gunicorn --bind 0.0.0.0:8000 main-api:app
+web: gunicorn --worker-class eventlet -w 1 app:app
