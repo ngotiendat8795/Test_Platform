@@ -4,6 +4,7 @@
 flask
 flask-restful
 flask-socketio
+pymongo
 
 # ----------------------
 # Database
