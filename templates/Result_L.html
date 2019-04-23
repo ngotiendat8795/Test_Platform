@@ -37,7 +37,7 @@ table, td {
               <td>
                 {{ question_data["Answer"] }}
               </td>
-              {% if question_data["Answer"] == latest_result_l[question_id]  %}
+              {% if question_data["Answer"].uppercase() == latest_result_l[question_id].uppercase()  %}
               <td>YES</td>
               {% if test_score.update({'value': (test_score.value + 1)}) %} {% endif %}
               {% else %}
