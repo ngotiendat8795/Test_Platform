@@ -2,10 +2,13 @@
 # Flask
 # ----------------------
 flask
+flask-restful
+flask-socketio
 
 # ----------------------
 # Database
 # ----------------------
+mongoengine
 pymongo
 
 # ----------------------
@@ -14,3 +17,8 @@ pymongo
 eventlet
 gunicorn
 
+# ----------------------
+# Others
+# ----------------------
+addict
+shortuuid
