@@ -1,7 +1,6 @@
 from pymongo import MongoClient
 from flask import *
 from bson.objectid import ObjectId
-from model.users import users
 app = Flask(__name__)
 
 
@@ -15,6 +14,7 @@ writing_test = ielts_database["Writing_Test"]
 reading_answer = ielts_database["reading_answer"]
 answer_key = ielts_database["Answer_Key"]
 band_score = ielts_database["Band_Score"]
+users = ielts_database["User_Data"]
 
 # HomePage
 

@@ -1,74 +1,3 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-
-<style>
-  
-table, td {
-  border: 1px solid black;
-}
-
-</style>
-
-<body>
-  
-  <!-- Reading SS -->
-
-    <div>
-      <table>
-          {% set test_score = {'value': 0}  %}    
-        <tr>
-          <td>Question</td>
-          <td>Your Answer</td>
-          <td>Correct Answer </td>
-          <td>Correctness</td>
-          </tr>      
-          {%for i in range(1,41)%}
-          <tr>
-            {% set question_id = Test_ID|string + "_R_" + i|string %}
-            <td> {{i}}</td>
-            <td> {{latest_result_r[question_id]}}</td>
-            {% set question_data = Answer_Key.find_one({"Question_ID": question_id}) %}
-            <td>
-              {{ question_data["Answer"] }}
-            </td>
-            {% if question_data["Answer"]|upper == latest_result_r[question_id]|upper %}
-            <td>YES</td>
-            {% if test_score.update({'value': (test_score.value + 1)}) %} {% endif %}
-            {% else %}
-            <td>No</td>
-            {% endif %}
-
-            {% endfor %}
-          </tr>
-
-
-      </table>
-
-      <h4>Your score is {{test_score.value}}</h4>
-
-      {% set score =  band_score.find_one({"Score": test_score.value}) %}
-        
-      <h4>Your Band Score is {{score["Reading"]}} </h4>
-
-    </div>
-
-    
-
-
-
-
-
-</body>
-</html>
-
-=======
 <!DOCTYPE html>
 <html lang="en">
 
@@ -150,4 +79,3 @@ table, td {
 </body>
 
 </html>
->>>>>>> c0453660c6f22d2474cf5b45605e13923592a283
