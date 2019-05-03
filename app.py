@@ -222,6 +222,13 @@ def result(id1, id2, id3):
         return render_template('Result_W.html', Test_ID=Test_ID, Answer_Key=answer_key, writing_history=writing_history, latest_result_w=latest_result_w)
 
 
+@app.route('/composer', methods=["GET", "POST"])
+def article_composer():
+    return render_template('composer.html')
+
+
+
+
 if __name__ == '__main__':
     app.secret_key = '123456789'
     app.run(debug=True)
