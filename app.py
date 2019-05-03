@@ -3,6 +3,7 @@ from flask import *
 from bson.objectid import ObjectId
 app = Flask(__name__)
 
+app.secret_key = '123456789nnngggggggoooooooo""""">>><<<""""'
 
 mongo_uri = "mongodb+srv://admin:admin@c4e28cluster-chzuv.mongodb.net/test?retryWrites=true"
 
@@ -230,5 +231,4 @@ def article_composer():
 
 
 if __name__ == '__main__':
-    app.secret_key = '123456789'
     app.run(debug=True)
